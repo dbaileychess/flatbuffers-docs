@@ -1,0 +1,14 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  padding: 0rem 1rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+li + li {
+  margin-top: 1rem;
+}

@@ -1,0 +1,24 @@
+header {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--gray7);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.header-title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.header-logo {
+  width: 3rem;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}

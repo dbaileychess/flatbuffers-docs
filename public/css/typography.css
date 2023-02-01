@@ -1,0 +1,5 @@
+html {
+  color: var(--gray12);
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+}
