@@ -1,0 +1,8 @@
+.highlight {
+  width: auto;
+}
+
+.highlight pre {
+  padding: 1rem;
+  overflow: auto;
+}

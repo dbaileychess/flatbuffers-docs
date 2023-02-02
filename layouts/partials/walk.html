@@ -1,4 +1,6 @@
-{{ range .Pages.ByTitle }}
+
+
+{{ range .Pages.ByWeight }}
   {{ if .Content }}
     <div class="sidebar-link">
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>

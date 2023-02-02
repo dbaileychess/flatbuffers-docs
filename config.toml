@@ -1,3 +1,19 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://flatbuffers.dev/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'FlatBuffers Documentation'
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'friendly'
+    tabWidth = 4
