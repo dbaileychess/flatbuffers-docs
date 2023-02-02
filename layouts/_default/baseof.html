@@ -14,8 +14,9 @@
   </head>
   <body>
     {{ partial "header.html" . }}
+    {{ partial "sidebar.html" . }}
     <main>
-      {{ partial "sidebar.html" . }}
+      <div class="sidebar-filler"></div>
       <div class="content">
         {{ block "main" . }}{{ end }}
       </div>

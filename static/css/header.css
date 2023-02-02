@@ -1,6 +1,6 @@
 header {
-  border-bottom: 1px solid var(--gray7);
-  padding: 0.5rem 0rem;
+  border-bottom: 1px solid var(--gray3);
+  padding: 0.5rem 0.5rem;
   position: sticky;
   top: 0;
   background-color: white;
@@ -31,7 +31,7 @@ header {
   align-items: center;
   flex-grow: 1;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .social-icon {
@@ -49,5 +49,9 @@ header {
 
   .header-title {
     font-size: 1.5rem;
+  }
+
+  .header-social {
+    gap: 1rem;
   }
 }

@@ -1,4 +1,5 @@
 aside {
+  display: none;
   position: fixed;
   top: 5rem;
 
@@ -23,5 +24,8 @@ aside {
   font-weight: 600;
 }
 
-.sidebar-link + .sidebar-heading {
+@media (min-width: 900px) {
+  aside {
+    display: block;
+  }
 }
