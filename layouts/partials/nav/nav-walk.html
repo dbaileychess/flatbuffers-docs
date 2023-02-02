@@ -1,16 +1,14 @@
-
-
 {{ range .Pages.ByWeight }}
   {{ if .Content }}
-    <div class="sidebar-link">
+    <div class="nav-link">
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
   {{ else }}
-    <div class="sidebar-heading">
+    <div class="nav-heading">
       {{ .Title }}
     </div>
   {{ end }}
   {{ if .Pages }}
-    {{ partial "walk.html" . }}
+    {{ partial "nav/nav-walk.html" . }}
   {{ end }}
 {{ end }}

@@ -1,0 +1,10 @@
+.nav-link a {
+  color: var(--gray12);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding-left: 0.75rem;
+}
+
+.nav-heading {
+  font-weight: 600;
+}

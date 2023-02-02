@@ -13,6 +13,17 @@ aside {
   gap: 0.5rem;
 }
 
+.sidebar-content a {
+  color: var(--gray12);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding-left: 0.75rem;
+}
+
+.sidebar-content .nav-heading {
+  font-weight: 600;
+}
+
 @media (min-width: 900px) {
   aside {
     display: block;
