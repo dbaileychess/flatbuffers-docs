@@ -1,0 +1,11 @@
+<aside>
+  <div class="sidebar-content">
+    <div class="sidebar-heading">Overview</div>
+    {{ range .Site.Pages }}
+      {{ if (not .Parent) }}
+        <div class="sidebar-link"><a href="/"> {{ .Title }}</a></div>
+        {{ partial "walk.html" . }}
+      {{ end }}
+    {{ end }}
+  </div>
+</aside>

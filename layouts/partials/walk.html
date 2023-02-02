@@ -1,0 +1,14 @@
+{{ range .Pages.ByTitle }}
+  {{ if .Content }}
+    <div class="sidebar-link">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </div>
+  {{ else }}
+    <div class="sidebar-heading">
+      {{ .Title }}
+    </div>
+  {{ end }}
+  {{ if .Pages }}
+    {{ partial "walk.html" . }}
+  {{ end }}
+{{ end }}

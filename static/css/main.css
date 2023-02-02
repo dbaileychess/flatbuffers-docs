@@ -1,12 +1,19 @@
-main {
+body {
   display: flex;
   flex-direction: column;
 }
 
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
 .content {
   padding: 0rem 1rem;
-  max-width: 860px;
+  padding-bottom: 3rem;
+  width: min(860px, 100%);
   margin: auto;
+  margin-top: 0;
 }
 
 li + li {
