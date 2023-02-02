@@ -38,6 +38,13 @@ header {
   color: inherit;
 }
 
+.menu-button {
+  display: block;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  border-left: 1px solid var(--gray6);
+}
+
 @media (min-width: 640px) {
   header {
     padding: 0.5rem 1rem;
@@ -53,5 +60,11 @@ header {
 
   .header-social {
     gap: 1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .menu-button {
+    display: none;
   }
 }
