@@ -1,14 +1,20 @@
-{{ range .Pages.ByWeight }}
+{{ $rootPage := .rootPage }}
+{{ range .ctx.Pages.ByWeight }}
   {{ if .Content }}
-    <div class="nav-link">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </div>
+    <a
+      class="nav-link {{ if eq $rootPage . }} active {{ end }}"
+      href="{{ .RelPermalink }}"
+    >
+      <div>
+        {{ .Title }}
+      </div>
+    </a>
   {{ else }}
     <div class="nav-heading">
       {{ .Title }}
     </div>
   {{ end }}
   {{ if .Pages }}
-    {{ partial "nav/nav-walk.html" . }}
+    {{ partial "nav/nav-walk.html" (dict "ctx" .  "rootPage" $rootPage) }}
   {{ end }}
 {{ end }}

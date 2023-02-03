@@ -1,11 +1,17 @@
+{{ $rootPage := . }}
 <nav>
   <div class="nav-heading">Overview</div>
   {{ range .Site.Pages }}
     {{ if (not .Parent) }}
-      <div class="nav-link">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </div>
-      {{ partial "nav/nav-walk.html" . }}
+      <a
+        class="nav-link {{ if eq $rootPage . }}active{{ end }}"
+        href="{{ .RelPermalink }}"
+      >
+        <div>
+          {{ .Title }}
+        </div>
+      </a>
+      {{ partial "nav/nav-walk.html" (dict "ctx" . "rootPage" $rootPage) }}
     {{ end }}
   {{ end }}
 </nav>
