@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>FlatBuffers</title>
-	<meta name="description" content="FlatBuffers Documentation">
+    <meta name="description" content="FlatBuffers Documentation" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,9 +11,18 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script defer src="js/menu.js"></script>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/root.css" />
+    <script
+      defer
+      src="{{ printf "%s%s" .Site.Home.RelPermalink "js/menu.js" }}"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="{{ printf "%s%s" .Site.Home.RelPermalink "css/normalize.css" }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ printf "%s%s" .Site.Home.RelPermalink "css/root.css" }}"
+    />
   </head>
   <body>
     {{ partial "header/header.html" . }}

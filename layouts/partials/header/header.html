@@ -1,11 +1,15 @@
 <header>
   <div class="header-content">
-    <img src="assets/flatbuffer_logo.svg" class="header-logo" alt="FlatBuffers logo"/>
+    <img
+      src="{{ printf "%s%s" .Site.Home.RelPermalink "assets/flatbuffer_logo.svg" }}"
+      class="header-logo"
+      alt="FlatBuffers logo"
+    />
     <div class="header-title">FlatBuffers</div>
     <div class="header-social">
       {{- partial "header/discord.html"  . -}}
       {{- partial "header/github.html" . -}}
     </div>
-	{{- partial "header/menu-button.html" . -}}
+    {{- partial "header/menu-button.html" . -}}
   </div>
 </header>

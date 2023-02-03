@@ -2,7 +2,9 @@
   <div class="nav-heading">Overview</div>
   {{ range .Site.Pages }}
     {{ if (not .Parent) }}
-      <div class="nav-link"><a href="/"> {{ .Title }}</a></div>
+      <div class="nav-link">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </div>
       {{ partial "nav/nav-walk.html" . }}
     {{ end }}
   {{ end }}
