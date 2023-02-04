@@ -3,4 +3,10 @@ html {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
   font-size: 16px;
+  scroll-padding-top: 5rem;
+}
+
+.heading-anchor {
+  margin-top: 0.5rem;
+  color: var(--gray12);
 }

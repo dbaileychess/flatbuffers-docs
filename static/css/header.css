@@ -43,6 +43,7 @@ header {
   padding-left: 0.5rem;
   margin-left: 0.5rem;
   border-left: 1px solid var(--gray6);
+  cursor: pointer;
 }
 
 @media (min-width: 640px) {

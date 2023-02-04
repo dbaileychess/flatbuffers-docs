@@ -1,11 +1,13 @@
 body {
   display: flex;
   flex-direction: column;
+  scroll-padding-top: 10rem;
 }
 
 main {
   display: flex;
   flex-grow: 1;
+  scroll-padding-top: 10rem;
 }
 
 .content {
@@ -14,6 +16,7 @@ main {
   width: min(960px, 90%);
   margin: auto;
   margin-top: 0;
+  scroll-padding-top: 10rem;
 }
 
 .sidebar-filler {
