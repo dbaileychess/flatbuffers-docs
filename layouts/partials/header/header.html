@@ -1,11 +1,15 @@
 <header>
   <div class="header-content">
-    <img
-      src="{{ printf "%s%s" .Site.Home.RelPermalink "assets/flatbuffer_logo.svg" }}"
-      class="header-logo"
-      alt="FlatBuffers logo"
-    />
-    <div class="header-title">FlatBuffers</div>
+    <a class="header-home-link" href="{{ .Site.Home.RelPermalink }}">
+      <div class="header-logo-title">
+        <img
+          src="{{ printf "%s%s" .Site.Home.RelPermalink "assets/flatbuffer_logo.svg" }}"
+          class="header-logo"
+          alt="FlatBuffers logo"
+        />
+        <div class="header-title">FlatBuffers</div>
+      </div>
+    </a>
     <div class="header-social">
       {{- partial "header/discord.html"  . -}}
       {{- partial "header/github.html" . -}}

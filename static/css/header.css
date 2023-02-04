@@ -12,12 +12,23 @@ header {
   gap: 0.1rem;
 }
 
+.header-home-link {
+  text-decoration: none;
+}
+
+.header-logo-title {
+  display: flex;
+  align-items: center;
+}
+
 .header-title {
   font-weight: 500;
   font-size: 1.3rem;
   cursor: pointer;
   user-select: none;
   font-family: "Poppins", sans-serif;
+  color: var(--gray12);
+  text-decoration: none;
 }
 
 .header-logo {
