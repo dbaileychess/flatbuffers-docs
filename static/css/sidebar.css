@@ -16,20 +16,23 @@ aside {
 .sidebar-content nav {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
 }
 
 .sidebar-content .nav-link {
-  padding: 0.2rem 0.5rem;
-  border-radius: 1rem;
+  font-weight: 500;
+  color: var(--gray10);
+  border-left: 1px solid var(--gray6);
+  padding: 0.2rem 1rem;
 }
 
 .sidebar-content .nav-link:hover {
-  background-color: hsla(35, 100%, 55.5%, 0.2);
+  color: var(--primary-color);
+  border-left: 1px solid var(--primary-color);
 }
 
 .sidebar-content .nav-link.active {
-  background-color: hsla(35, 100%, 55.5%, 0.2);
+  color: var(--primary-color);
+  border-left: 1px solid var(--primary-color);
 }
 
 @media (min-width: 900px) {

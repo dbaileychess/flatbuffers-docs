@@ -3,10 +3,12 @@
   text-decoration: none;
   font-size: 0.9rem;
 }
-.nav-link div {
-  padding-left: 0.5rem;
+
+.nav-heading.first-nav-heading {
+  margin-top: 0;
 }
 
 .nav-heading {
   font-weight: 600;
+  margin-top: 0.5rem;
 }
