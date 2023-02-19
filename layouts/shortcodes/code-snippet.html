@@ -1,0 +1,24 @@
+{{ $file := .Get "file" }}
+{{ $lang := .Get "lang" }}
+{{ $groupHeading := .Get "groupHeading" }}
+{{ $start := .Get "start" }}
+{{ $end := .Get "end" }}
+{{ $content := ($file | readFile) }}
+{{ $lines := (split $content "\n") }}
+{{ $snippet := "" }}
+
+{{ range $ind, $line := $lines }}
+  {{ if and (gt $ind $start) (lt $ind $end) }}
+    {{ $snippet = printf "%s" $line | printf "%s\n%s" $snippet | printf "%s" }}
+  {{ else if or (eq $ind $start) (eq $ind $end) }}
+    {{ $snippet = printf "%s" $line | printf "%s%s" $snippet | printf "%s" }}
+  {{ end }}
+{{ end }}
+
+{{ $opts := printf "guessSyntax=true, linenostart=%s" (string $start) | printf "%s" }}
+
+
+<div>{{ $lang }}</div>
+<div class="code-snippet" data-group-heading="{{ $groupHeading }}">
+  {{ highlight $snippet $lang $opts }}
+</div>

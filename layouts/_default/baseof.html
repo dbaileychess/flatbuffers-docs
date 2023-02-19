@@ -15,6 +15,11 @@
       defer
       src="{{ printf "%s%s" .Site.Home.RelPermalink "js/menu.js" }}"
     ></script>
+    <script
+      defer
+      type="module"
+      src="{{ printf "%s%s" .Site.Home.RelPermalink "js/state.js" }}"
+    ></script>
     <link
       rel="stylesheet"
       href="{{ printf "%s%s" .Site.Home.RelPermalink "css/normalize.css" }}"
@@ -25,14 +30,16 @@
     />
   </head>
   <body>
-    {{ partial "header/header.html" . }}
-    {{ partial "sidebar.html" . }}
-    {{ partial "menu.html" . }}
-    <main>
-      <div class="sidebar-filler"></div>
-      <div class="content">
-        {{ block "main" . }}{{ end }}
-      </div>
-    </main>
+    <div id="app">
+      {{ partial "header/header.html" . }}
+      {{ partial "sidebar.html" . }}
+      {{ partial "menu.html" . }}
+      <main>
+        <div class="sidebar-filler"></div>
+        <div class="content">
+          {{ block "main" . }}{{ end }}
+        </div>
+      </main>
+    </div>
   </body>
 </html>
