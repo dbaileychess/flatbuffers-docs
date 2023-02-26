@@ -1,6 +1,6 @@
 {{ $file := .Get "file" }}
 {{ $lang := .Get "lang" }}
-{{ $groupHeading := .Get "groupHeading" }}
+{{ $tabName := .Get "tabName" }}
 {{ $start := .Get "start" }}
 {{ $end := .Get "end" }}
 {{ $content := ($file | readFile) }}
@@ -18,7 +18,11 @@
 {{ $opts := printf "guessSyntax=true, linenostart=%s" (string $start) | printf "%s" }}
 
 
-<div>{{ $lang }}</div>
-<div class="code-snippet" data-group-heading="{{ $groupHeading }}">
+<div
+  class="code-snippet"
+  data-tab-name="{{ $tabName }}"
+  style="display: none;"
+  :style="{display: snippetGroups.test && snippetGroups.test.currentTab == '{{ $tabName }}' ? 'block': 'none'}"
+>
   {{ highlight $snippet $lang $opts }}
 </div>

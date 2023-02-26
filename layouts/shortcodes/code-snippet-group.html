@@ -2,5 +2,19 @@
 
 
 <div class="code-snippet-group" data-group-id="{{ $groupId }}">
+  <div class="code-snippet-tabs-wrapper">
+    <div class="code-snippet-tabs" v-if="snippetGroups.{{ $groupId }}">
+      <div
+        v-for="tabName in snippetGroups.{{ $groupId }}.tabNames"
+        @click="setCurrentSnippetTab(tabName)"
+        class="code-snippet-tab"
+        :class="{ active: snippetGroups.{{ $groupId }}.currentTab === tabName }"
+        style="display: none;"
+        :style="{ display: 'block' }"
+      >
+        ${tabName}$
+      </div>
+    </div>
+  </div>
   {{ .Inner }}
 </div>

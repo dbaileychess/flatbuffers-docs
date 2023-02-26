@@ -1,0 +1,28 @@
+.code-snippet-tabs-wrapper {
+  padding-bottom: 0.5rem;
+  overflow-x: auto;
+}
+
+.code-snippet-tabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.code-snippet-tab {
+  border-bottom: 3px solid var(--gray6);
+  cursor: pointer;
+  min-width: 5rem;
+  text-align: center;
+}
+
+.code-snippet-tab.active {
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.code-snippet {
+  display: none;
+}
+
+.code-snippet.show {
+  display: block;
+}
