@@ -13,7 +13,7 @@ main {
 .content {
   padding: 0rem 1rem;
   padding-bottom: 3rem;
-  width: min(960px, 90%);
+  width: min(940px, 80%);
   margin: auto;
   margin-top: 0;
   scroll-padding-top: 10rem;
@@ -50,7 +50,7 @@ ul {
   background: var(--primary-color);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 960px) {
   .sidebar-filler {
     display: block;
   }
