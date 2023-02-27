@@ -1,0 +1,28 @@
+{{ $file := .Get "file" }}
+{{ $lang := .Get "lang" }}
+{{ $tabName := .Get "tabName" }}
+{{ $start := .Get "start" }}
+{{ $end := .Get "end" }}
+{{ $content := ($file | readFile) }}
+{{ $lines := (split $content "\n") }}
+{{ $snippet := "" }}
+
+{{ range $ind, $line := $lines }}
+  {{ if and (gt $ind $start) (lt $ind $end) }}
+    {{ $snippet = printf "%s" $line | printf "%s\n%s" $snippet | printf "%s" }}
+  {{ else if or (eq $ind $start) (eq $ind $end) }}
+    {{ $snippet = printf "%s" $line | printf "%s%s" $snippet | printf "%s" }}
+  {{ end }}
+{{ end }}
+
+{{ $opts := printf "guessSyntax=true, linenostart=%s" (string $start) | printf "%s" }}
+
+
+<div
+  class="code-snippet"
+  data-tab-name="{{ $tabName }}"
+  style="display: none;"
+  :style="{display: snippetGroups.test && snippetGroups.test.currentTab == '{{ $tabName }}' ? 'block': 'none'}"
+>
+  {{ highlight $snippet $lang $opts }}
+</div>
