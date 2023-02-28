@@ -13,5 +13,5 @@ pluralizelisttitles = "false"
     hl_inline = false
     lineAnchors = ''
     lineNoStart = 1
-    style = 'friendly'
+    style = 'vs'
     tabWidth = 2

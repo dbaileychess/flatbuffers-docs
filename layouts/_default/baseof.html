@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <script
@@ -34,12 +34,12 @@
       {{ partial "header/header.html" . }}
       {{ partial "menu.html" . }}
       <main>
-          <div class="sidebar-filler">
-            {{ partial "sidebar.html" . }}
-          </div>
-          <div class="content">
-            {{ block "main" . }}{{ end }}
-          </div>
+        <div class="sidebar-filler">
+          {{ partial "sidebar.html" . }}
+        </div>
+        <div class="content">
+          {{ block "main" . }}{{ end }}
+        </div>
       </main>
     </div>
   </body>

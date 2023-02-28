@@ -5,8 +5,11 @@
 .highlight pre {
   padding: 1rem;
   overflow: auto;
+  border: 1px solid var(--gray6);
+  border-radius: 8px;
 }
 
 code {
-  background-color: rgb(240, 240, 240);
+  background-color: #f0f0f5;
+  font-family: "Roboto Mono", monospace;
 }
