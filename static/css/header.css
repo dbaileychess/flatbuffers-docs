@@ -58,18 +58,6 @@ header {
 }
 
 @media (min-width: 640px) {
-  header {
-    padding: 0.5rem 1rem;
-  }
-
-  .header-logo {
-    width: 3rem;
-  }
-
-  .header-title {
-    font-size: 1.5rem;
-  }
-
   .header-social {
     gap: 1rem;
   }

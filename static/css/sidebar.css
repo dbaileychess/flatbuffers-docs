@@ -1,6 +1,6 @@
 aside {
   position: sticky;
-  top: 5rem;
+  top: 4.5rem;
   display: none;
   height: min-content;
 }
@@ -9,7 +9,7 @@ aside {
   display: flex;
   flex-direction: column;
   padding-left: 1.5rem;
-  width: 10rem;
+  width: 11rem;
 }
 
 .sidebar-content nav {
@@ -34,7 +34,7 @@ aside {
   border-left: 3px solid var(--primary-color);
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1000px) {
   aside {
     display: block;
   }
