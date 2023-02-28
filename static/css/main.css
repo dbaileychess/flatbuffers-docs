@@ -6,7 +6,6 @@ body {
 
 main {
   display: flex;
-  flex-grow: 1;
   scroll-padding-top: 10rem;
   justify-content: center;
 }
@@ -16,7 +15,6 @@ main {
 }
 
 .content {
-  padding: 0rem 1rem;
   padding-bottom: 3rem;
   width: 90%;
   margin-top: 0;
