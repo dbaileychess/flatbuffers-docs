@@ -4,5 +4,5 @@
   class="tutorial-lang-observer"
   :class="{show: tutorialLanguage == '{{ $lang }}'}"
 >
-  {{ .Inner }}
+  {{ .Inner | markdownify }}
 </div>
