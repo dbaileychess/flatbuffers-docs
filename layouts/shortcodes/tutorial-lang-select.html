@@ -8,7 +8,7 @@
     <div
       class="tutorial-lang-option"
       :class="{active: tutorialLanguage == '{{ $lang }}'}"
-      @click="tutorialLanguage = '{{ $lang }}'"
+      @click="setTutorialLanguage('{{ $lang }}')"
     >
       {{ $lang }}
     </div>
