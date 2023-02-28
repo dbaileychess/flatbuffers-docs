@@ -18,7 +18,7 @@ main {
 .content {
   padding: 0rem 1rem;
   padding-bottom: 3rem;
-  width: min(940px, 90%);
+  width: 90%;
   margin-top: 0;
   scroll-padding-top: 10rem;
 }
@@ -40,7 +40,7 @@ ul {
 
 @media (min-width: 960px) {
   .content {
-    width: min(940px, 80%);
+    width: min(920px, 80%);
   }
 
   .sidebar-filler {
