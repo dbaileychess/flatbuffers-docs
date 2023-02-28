@@ -2,6 +2,8 @@ baseURL = 'http://flatbuffers.dev/'
 languageCode = 'en-us'
 title = 'FlatBuffers Documentation'
 
+pluralizelisttitles = "false"
+
 [markup]
   [markup.highlight]
     anchorLineNos = false

@@ -6,3 +6,7 @@
   padding: 1rem;
   overflow: auto;
 }
+
+code {
+  background-color: rgb(240, 240, 240);
+}
