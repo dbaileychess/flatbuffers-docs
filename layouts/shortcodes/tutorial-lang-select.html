@@ -1,0 +1,16 @@
+{{ $tutorialLanguages := slice "C++" "Java" "Kotlin" "C#" "Go" "Python"
+  "JavaScript" "TypeScript" "PHP" "Dart" "Lua" "Lobster" "Rust" "Swift"
+}}
+
+
+<div id="tutorial-lang-select">
+  {{ range $lang := $tutorialLanguages }}
+    <div
+      class="tutorial-lang-option"
+      :class="{active: tutorialLanguage == '{{ $lang }}'}"
+      @click="tutorialLanguage = '{{ $lang }}'"
+    >
+      {{ $lang }}
+    </div>
+  {{ end }}
+</div>

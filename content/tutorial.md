@@ -20,6 +20,10 @@ During this example, imagine that you are creating a game where the main
 character, the hero of the story, needs to slay some orcs. We will walk through
 each step necessary to create this monster type using FlatBuffers.
 
+**Please select a language:**
+
+{{< tutorial-lang-select >}}
+
 ## Writing the Monsters' FlatBuffer Schema
 
 ```
@@ -126,109 +130,107 @@ flatc, the FlatBuffer compiler.
 Once flatc is built successfully, compile the schema for your language:
 
 
-{{< code-snippet-group groupId="tutorial">}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --cpp monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --java monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --kotlin monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --csharp monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --go monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --python monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --ts monster.fbs
 # customize your TS -> JS transpilation
 tsc monster_generated.ts
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --ts monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --php monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --dart monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --lua monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --lobster monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --rust monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight bash >}}
 cd flatbuffers/samples
 ./../flatc --swift monster.fbs
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{</ code-snippet-group >}}
 
 For a more complete guide to using the flatc compiler, please read the Using
 the schema compiler section of the Programmer's Guide.
@@ -242,49 +244,48 @@ creating some monsters and serializing/deserializing them from FlatBuffers.
 
 The first step is to import/include the library, generated files, etc.
 
-{{< code-snippet-group groupId="tutorial">}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 #include "monster_generated.h" // This was generated by `flatc`.
 
 using namespace MyGame::Sample; // Specified in the schema.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 import MyGame.Sample.*; //The `flatc` generated files. (Monster, Vec3, etc.)
  
 import com.google.flatbuffers.FlatBufferBuilder;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 import MyGame.Sample.* //The `flatc` generated files. (Monster, Vec3, etc.)
 
 import com.google.flatbuffers.FlatBufferBuilder
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 using FlatBuffers;
 using MyGame.Sample; // The `flatc` generated files. (Monster, Vec3, etc.)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 import (
     flatbuffers "github.com/google/flatbuffers/go"
     sample "MyGame/Sample"
 )
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 import flatbuffers
  
@@ -295,9 +296,9 @@ import MyGame.Sample.Monster
 import MyGame.Sample.Vec3
 import MyGame.Sample.Weapon
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // The following code is an example - use your desired module flavor by transpiling from TS. 
 var flatbuffers = require('/js/flatbuffers').flatbuffers;
@@ -309,17 +310,17 @@ var MyGame = require('./monster_generated').MyGame; // Generated by `flatc`.
 // for JavaScript module loaders (e.g. Node.js).
 <script src="../js/flatbuffers.js"></script>
 <script src="monster_generated.js"></script> // Generated by `flatc`.{{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // note: import flatbuffers with your desired import method
  
 import { MyGame } from './monster_generated';
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // It is recommended that your use PSR autoload when using FlatBuffers in PHP.
 // Here is an example from `SampleBinary.php`:
@@ -340,18 +341,18 @@ function __autoload($class_name) {
   }
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 import 'package:flat_buffers/flat_buffers.dart' as fb;
  
 // Generated by `flatc`.
 import 'monster_my_game.sample_generated.dart' as myGame;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- require the flatbuffers module
 local flatbuffers = require("flatbuffers")
@@ -363,16 +364,16 @@ local monster = require("MyGame.Sample.Monster")
 local vec3 = require("MyGame.Sample.Vec3")
 local weapon = require("MyGame.Sample.Weapon")
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 import from "../lobster/"  // Where to find flatbuffers.lobster
 import monster_generated
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // import the flatbuffers runtime library
 extern crate flatbuffers;
@@ -387,9 +388,9 @@ pub use monster_generated::my_game::sample::{get_root_as_monster,
                                              Vec3,
                                              Weapon, WeaponArgs};
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 /**
 // make sure that monster_generated.swift is included in your project
@@ -402,90 +403,88 @@ typealias Weapon = MyGame1_Sample_Weapon
 typealias Color = MyGame1_Sample_Color
 typealias Vec3 = MyGame1_Sample_Vec3
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{</ code-snippet-group >}}
 
 Now we are ready to start building some buffers. In order to start, we need to
 create an instance of the FlatBufferBuilder, which will contain the buffer as
 it grows. You can pass an initial size of the buffer (here 1024 bytes), which
 will grow automatically if needed:
 
-{{< code-snippet-group groupId="tutorial">}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 // Create a `FlatBufferBuilder`, which will be used to create our
 // monsters' FlatBuffers.
 flatbuffers::FlatBufferBuilder builder(1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 // Create a `FlatBufferBuilder`, which will be used to create our
 // monsters' FlatBuffers.
 FlatBufferBuilder builder = new FlatBufferBuilder(1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 // Create a `FlatBufferBuilder`, which will be used to create our
 // monsters' FlatBuffers.
 val builder = FlatBufferBuilder(1024)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 // Create a `FlatBufferBuilder`, which will be used to create our
 // monsters' FlatBuffers.
 var builder = new FlatBufferBuilder(1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // Create a `FlatBufferBuilder`, which will be used to create our
 // monsters' FlatBuffers.
 builder := flatbuffers.NewBuilder(1024)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 # Create a `FlatBufferBuilder`, which will be used to create our
 # monsters' FlatBuffers.
 builder = flatbuffers.Builder(1024)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // Create a `flatbuffer.Builder`, which will be used to create our
 // monsters' FlatBuffers.
 var builder = new flatbuffers.Builder(1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // Create a `flatbuffer.Builder`, which will be used to create our
 // monsters' FlatBuffers.
 let builder = new flatbuffers.Builder(1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // Create a `FlatBufferBuilder`, which will be used to create our
 // monsters' FlatBuffers.
 $builder = new Google\FlatBuffers\FlatbufferBuilder(1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // Create the fb.Builder object that will be used by our generated builders
 // Note that if you are only planning to immediately get the byte array this builder would create,
@@ -493,45 +492,43 @@ $builder = new Google\FlatBuffers\FlatbufferBuilder(1024);
 // For example, you could do something like `new myGame.MonsterBuilder(...).toBytes()`
 var builder = new fb.Builder(initialSize: 1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- get access to the builder, providing an array of size 1024
 local builder = flatbuffers.Builder(1024)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 // get access to the builder
 let builder = flatbuffers_builder {}
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Build up a serialized buffer algorithmically.
 // Initialize it with a capacity of 1024 bytes.
 let mut builder = flatbuffers::FlatBufferBuilder::new_with_capacity(1024);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // create a `FlatBufferBuilder`, which will be used to serialize objects
 let builder = FlatBufferBuilder(initialSize: 1024)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{</ code-snippet-group >}}
 
 After creating the builder, we can start serializing our data. Before we make
 our orc Monster, let's create some Weapons: a Sword and an Axe.
 
-{{< code-snippet-group groupId="tutorial">}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 auto weapon_one_name = builder.CreateString("Sword");
 short weapon_one_damage = 3;
@@ -543,9 +540,9 @@ short weapon_two_damage = 5;
 auto sword = CreateWeapon(builder, weapon_one_name, weapon_one_damage);
 auto axe = CreateWeapon(builder, weapon_two_name, weapon_two_damage);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 int weaponOneName = builder.createString("Sword")
 short weaponOneDamage = 3;
@@ -557,9 +554,9 @@ short weaponTwoDamage = 5;
 int sword = Weapon.createWeapon(builder, weaponOneName, weaponOneDamage);
 int axe = Weapon.createWeapon(builder, weaponTwoName, weaponTwoDamage);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val weaponOneName = builder.createString("Sword")
 val weaponOneDamage: Short = 3;
@@ -571,9 +568,9 @@ val weaponTwoDamage: Short = 5;
 val sword = Weapon.createWeapon(builder, weaponOneName, weaponOneDamage)
 val axe = Weapon.createWeapon(builder, weaponTwoName, weaponTwoDamage)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 var weaponOneName = builder.CreateString("Sword");
 var weaponOneDamage = 3;
@@ -585,9 +582,9 @@ var weaponTwoDamage = 5;
 var sword = Weapon.CreateWeapon(builder, weaponOneName, (short)weaponOneDamage);
 var axe = Weapon.CreateWeapon(builder, weaponTwoName, (short)weaponTwoDamage);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 weaponOne := builder.CreateString("Sword")
 weaponTwo := builder.CreateString("Axe")
@@ -604,9 +601,9 @@ sample.WeaponAddName(builder, weaponTwo)
 sample.WeaponAddDamage(builder, 5)
 axe := sample.WeaponEnd(builder)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 weapon_one = builder.CreateString('Sword')
 weapon_two = builder.CreateString('Axe')
@@ -623,9 +620,9 @@ MyGame.Sample.Weapon.AddName(builder, weapon_two)
 MyGame.Sample.Weapon.AddDamage(builder, 5)
 axe = MyGame.Sample.Weapon.End(builder)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 var weaponOne = builder.createString('Sword');
 var weaponTwo = builder.createString('Axe');
@@ -642,9 +639,9 @@ MyGame.Sample.Weapon.addName(builder, weaponTwo);
 MyGame.Sample.Weapon.addDamage(builder, 5);
 var axe = MyGame.Sample.Weapon.endWeapon(builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 let weaponOne = builder.createString('Sword');
 let weaponTwo = builder.createString('Axe');
@@ -661,9 +658,9 @@ MyGame.Sample.Weapon.addName(builder, weaponTwo);
 MyGame.Sample.Weapon.addDamage(builder, 5);
 let axe = MyGame.Sample.Weapon.endWeapon(builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // Create the `Weapon`s using the `createWeapon()` helper function.
 $weapon_one_name = $builder->createString("Sword");
@@ -677,9 +674,9 @@ $axe = \MyGame\Sample\Weapon::CreateWeapon($builder, $weapon_two_name, 5);
 $weaps = array($sword, $axe);
 $weapons = \MyGame\Sample\Monster::CreateWeaponsVector($builder, $weaps);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // The generated Builder classes work much like in other languages,
 final int weaponOneName = builder.writeString("Sword");
@@ -721,9 +718,9 @@ final myGame.WeaponBuilder axe = new myGame.WeaponObjectBuilder(
   damage: weaponTwoDamage,
 );
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 local weaponOne = builder:CreateString("Sword")
 local weaponTwo = builder:CreateString("Axe")
@@ -740,9 +737,9 @@ weapon.AddName(builder, weaponTwo)
 weapon.AddDamage(builder, 5)
 local axe = weapon.End(builder)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 let weapon_names = [ "Sword", "Axe" ]
 let weapon_damages = [ 3, 5 ]
@@ -755,9 +752,9 @@ let weapon_offsets = map(weapon_names) name, i:
         .add_damage(weapon_damages[i])
         .end()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Serialize some weapons for the Monster: A 'sword' and an 'axe'.
 let weapon_one_name = builder.create_string("Sword");
@@ -774,9 +771,9 @@ let axe = Weapon::create(&mut builder, &WeaponArgs{
     damage: 5,
 });
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 let weapon1Name = builder.create(string: "Sword")
 let weapon2Name = builder.create(string: "Axe")
@@ -793,9 +790,8 @@ Weapon.add(name: weapon2Name, &builder)
 Weapon.add(damage: 5, &builder)
 let axe = Weapon.endWeapon(&builder, start: weapon2Start)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{</ code-snippet-group >}}
 
 Now let's create our monster, the orc. For this orc, lets make him red with
 rage, positioned at (1.0, 2.0, 3.0), and give him a large pool of hit points
@@ -808,9 +804,7 @@ Before we serialize a monster, we need to first serialize any objects that are
 contained therein, i.e. we serialize the data tree using depth-first, pre-order
 traversal. This is generally easy to do on any tree structures.
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 // Serialize a name for our monster, called "Orc".
 auto name = builder.CreateString("Orc");
@@ -820,9 +814,9 @@ auto name = builder.CreateString("Orc");
 unsigned char treasure[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 auto inventory = builder.CreateVector(treasure, 10);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 // Serialize a name for our monster, called "Orc".
 int name = builder.createString("Orc");
@@ -832,9 +826,9 @@ int name = builder.createString("Orc");
 byte[] treasure = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 int inv = Monster.createInventoryVector(builder, treasure);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 // Serialize a name for our monster, called "Orc".
 val name = builder.createString("Orc")
@@ -844,9 +838,9 @@ val name = builder.createString("Orc")
 val treasure = byteArrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 val inv = Monster.createInventoryVector(builder, treasure)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 // Serialize a name for our monster, called "Orc".
 var name = builder.CreateString("Orc");
@@ -861,9 +855,9 @@ for (int i = 9; i >= 0; i--)
 }
 var inv = builder.EndVector();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // Serialize a name for our monster, called "Orc".
 name := builder.CreateString("Orc")
@@ -877,9 +871,9 @@ for i := 9; i >= 0; i-- {
 }
 inv := builder.EndVector(10)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 # Serialize a name for our monster, called "Orc".
 name = builder.CreateString("Orc")
@@ -892,9 +886,9 @@ for i in reversed(range(0, 10)):
   builder.PrependByte(i)
 inv = builder.EndVector()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // Serialize a name for our monster, called 'Orc'.
 var name = builder.createString('Orc');
@@ -904,9 +898,9 @@ var name = builder.createString('Orc');
 var treasure = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var inv = MyGame.Sample.Monster.createInventoryVector(builder, treasure);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // Serialize a name for our monster, called 'Orc'.
 let name = builder.createString('Orc');
@@ -916,9 +910,9 @@ let name = builder.createString('Orc');
 let treasure = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let inv = MyGame.Sample.Monster.createInventoryVector(builder, treasure);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // Serialize a name for our monster, called "Orc".
 $name = $builder->createString("Orc");
@@ -928,9 +922,9 @@ $name = $builder->createString("Orc");
 $treasure = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 $inv = \MyGame\Sample\Monster::CreateInventoryVector($builder, $treasure);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // Serialize a name for our monster, called "Orc".
 final int name = builder.writeString('Orc');
@@ -949,9 +943,9 @@ final String name = 'Orc';
 // could correspond to an item that can be claimed after he is slain.
 final List<int> treasure = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- Serialize a name for our mosnter, called 'orc'
 local name = builder:CreateString("Orc")
@@ -965,9 +959,9 @@ for i=10,1,-1 do
 end
 local inv = builder:EndVector(10)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 // Name of the monster.
 let name = builder.CreateString("Orc")
@@ -975,9 +969,9 @@ let name = builder.CreateString("Orc")
 // Inventory.
 let inv = builder.MyGame_Sample_MonsterCreateInventoryVector(map(10): _)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Name of the Monster.
 let name = builder.create_string("Orc");
@@ -985,9 +979,9 @@ let name = builder.create_string("Orc");
 // Inventory.
 let inventory = builder.create_vector(&[0u8, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // Name of the Monster.
 let name = builder.create(string: "Orc")
@@ -996,9 +990,7 @@ let name = builder.create(string: "Orc")
 let inventory: [Byte] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 let inventoryOffset = builder.createVector(inventory)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 We serialized two built-in data types (string and vector) and captured their 
 return values. These values are offsets into the serialized data, indicating 
@@ -1017,9 +1009,7 @@ For example, take a look at the two Weapons that we created earlier (Sword and
 Axe). These are both FlatBuffer tables, whose offsets we now store in memory.
 Therefore we can create a FlatBuffer vector to contain these offsets.
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 // Place the weapons into a `std::vector`, then convert that into a FlatBuffer `vector`.
 std::vector<flatbuffers::Offset<Weapon>> weapons_vector;
@@ -1027,9 +1017,9 @@ weapons_vector.push_back(sword);
 weapons_vector.push_back(axe);
 auto weapons = builder.CreateVector(weapons_vector);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 // Place the two weapons into an array, and pass it to the `createWeaponsVector()` method to
 // create a FlatBuffer vector.
@@ -1040,9 +1030,9 @@ weaps[1] = axe;
 // Pass the `weaps` array into the `createWeaponsVector()` method to create a FlatBuffer vector.
 int weapons = Monster.createWeaponsVector(builder, weaps);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 // Place the two weapons into an array, and pass it to the `createWeaponsVector()` method to
 // create a FlatBuffer vector.
@@ -1051,9 +1041,9 @@ val weaps = intArrayOf(sword, axe)
 // Pass the `weaps` array into the `createWeaponsVector()` method to create a FlatBuffer vector.
 val weapons = Monster.createWeaponsVector(builder, weaps)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 var weaps = new Offset<Weapon>[2];
 weaps[0] = sword;
@@ -1062,9 +1052,9 @@ weaps[1] = axe;
 // Pass the `weaps` array into the `CreateWeaponsVector()` method to create a FlatBuffer vector.
 var weapons = Monster.CreateWeaponsVector(builder, weaps);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // Create a FlatBuffer vector and prepend the weapons.
 // Note: Since we prepend the data, prepend them in reverse order.
@@ -1073,9 +1063,9 @@ builder.PrependUOffsetT(axe)
 builder.PrependUOffsetT(sword)
 weapons := builder.EndVector(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 # Create a FlatBuffer vector and prepend the weapons.
 # Note: Since we prepend the data, prepend them in reverse order.
@@ -1084,36 +1074,36 @@ builder.PrependUOffsetTRelative(axe)
 builder.PrependUOffsetTRelative(sword)
 weapons = builder.EndVector()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // Create an array from the two `Weapon`s and pass it to the
 // `createWeaponsVector()` method to create a FlatBuffer vector.
 var weaps = [sword, axe];
 var weapons = MyGame.Sample.Monster.createWeaponsVector(builder, weaps);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // Create an array from the two `Weapon`s and pass it to the
 // `createWeaponsVector()` method to create a FlatBuffer vector.
 let weaps = [sword, axe];
 let weapons = MyGame.Sample.Monster.createWeaponsVector(builder, weaps);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // Create an array from the two `Weapon`s and pass it to the
 // `CreateWeaponsVector()` method to create a FlatBuffer vector.
 $weaps = array($sword, $axe);
 $weapons = \MyGame\Sample\Monster::CreateWeaponsVector($builder, $weaps);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // If using the Builder classes, serialize the `[sword,axe]`
 final weapons = builder.writeList([sword, axe]);
@@ -1121,9 +1111,9 @@ final weapons = builder.writeList([sword, axe]);
 // If using the ObjectBuilders, just create an array from the two `Weapon`s
 final List<myGame.WeaponBuilder> weaps = [sword, axe];
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- Create a FlatBuffer vector and prepend the weapons.
 -- Note: Since we prepend the data, prepend them in reverse order.
@@ -1132,31 +1122,29 @@ builder:PrependUOffsetTRelative(axe)
 builder:PrependUOffsetTRelative(sword)
 local weapons = builder:EndVector(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 let weapons = builder.MyGame_Sample_MonsterCreateWeaponsVector(weapon_offsets)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Create a FlatBuffer `vector` that contains offsets to the sword and axe
 // we created above.
 let weapons = builder.create_vector(&[sword, axe]);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // Create a FlatBuffer `vector` that contains offsets to the sword and axe
 // we created above.
 let weaponsOffset = builder.createVector(ofOffsets: [sword, axe])
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 Note there are additional convenience overloads of CreateVector, allowing you to
 work with data that's not in a `std::vector` or allowing you to generate elements
@@ -1167,88 +1155,86 @@ Note that vectors of structs are serialized differently from tables, since
 structs are stored in-line in the vector. For example, to create a vector for
 the path field above:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 Vec3 points[] = { Vec3(1.0f, 2.0f, 3.0f), Vec3(4.0f, 5.0f, 6.0f) };
 auto path = builder.CreateVectorOfStructs(points, 2);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 Monster.startPathVector(fbb, 2);
 Vec3.createVec3(builder, 1.0f, 2.0f, 3.0f);
 Vec3.createVec3(builder, 4.0f, 5.0f, 6.0f);
 int path = fbb.endVector();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 Monster.startPathVector(fbb, 2)
 Vec3.createVec3(builder, 1.0f, 2.0f, 3.0f)
 Vec3.createVec3(builder, 4.0f, 5.0f, 6.0f)
 val path = fbb.endVector()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 Monster.StartPathVector(fbb, 2);
 Vec3.CreateVec3(builder, 1.0f, 2.0f, 3.0f);
 Vec3.CreateVec3(builder, 4.0f, 5.0f, 6.0f);
 var path = fbb.EndVector();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 sample.MonsterStartPathVector(builder, 2)
 sample.CreateVec3(builder, 1.0, 2.0, 3.0)
 sample.CreateVec3(builder, 4.0, 5.0, 6.0)
 path := builder.EndVector(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 MyGame.Sample.Monster.StartPathVector(builder, 2)
 MyGame.Sample.Vec3.CreateVec3(builder, 1.0, 2.0, 3.0)
 MyGame.Sample.Vec3.CreateVec3(builder, 4.0, 5.0, 6.0)
 path = builder.EndVector()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 MyGame.Sample.Monster.startPathVector(builder, 2);
 MyGame.Sample.Vec3.createVec3(builder, 1.0, 2.0, 3.0);
 MyGame.Sample.Vec3.createVec3(builder, 4.0, 5.0, 6.0);
 var path = builder.endVector();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 MyGame.Sample.Monster.startPathVector(builder, 2);
 MyGame.Sample.Vec3.createVec3(builder, 1.0, 2.0, 3.0);
 MyGame.Sample.Vec3.createVec3(builder, 4.0, 5.0, 6.0);
 let path = builder.endVector();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 \MyGame\Example\Monster::StartPathVector($builder, 2);
 \MyGame\Sample\Vec3::CreateVec3($builder, 1.0, 2.0, 3.0);
 \MyGame\Sample\Vec3::CreateVec3($builder, 1.0, 2.0, 3.0);
 $path = $builder->endVector();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // Using the Builder classes, you can write a list of structs like so:
 // Note that the intended order should be reversed if order is important.
@@ -1266,9 +1252,9 @@ final List<myGame.Vec3ObjectBuilder> path = [
   new myGame.Vec3ObjectBuilder(x: 4.0, y: 5.0, z: 6.0)
 ];
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- Create a FlatBuffer vector and prepend the path locations.
 -- Note: Since we prepend the data, prepend them in reverse order.
@@ -1277,18 +1263,18 @@ vec3.CreateVec3(builder, 1.0, 2.0, 3.0)
 vec3.CreateVec3(builder, 4.0, 5.0, 6.0)
 local path = builder:EndVector(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 builder.MyGame_Sample_MonsterStartPathVector(2)
 builder.MyGame_Sample_CreateVec3(1.0, 2.0, 3.0)
 builder.MyGame_Sample_CreateVec3(4.0, 5.0, 6.0)
 let path = builder.EndVector(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Create the path vector of Vec3 objects.
 let x = Vec3::new(1.0, 2.0, 3.0);
@@ -1299,9 +1285,9 @@ let path = builder.create_vector(&[x, y]);
 // references to structs, like this:
 // let path = builder.create_vector(&[&x, &y]);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 let points = fbb.createVector(ofStructs: [
   Vec3(x: 1, y: 2, z: 3),
@@ -1319,15 +1305,11 @@ for i in obj {
 }
 let points = fbb.endVector(len: size)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 We have now serialized the non-scalar components of the orc, so we can serialize the monster itself:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 // Create the position struct
 auto position = Vec3(1.0f, 2.0f, 3.0f);
@@ -1342,9 +1324,9 @@ auto orc = CreateMonster(builder, &position, mana, hp, name, inventory,
                         Color_Red, weapons, Equipment_Weapon, axe.Union(),
                         path);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 // Create our monster using `startMonster()` and `endMonster()`.
 Monster.startMonster(builder);
@@ -1359,9 +1341,9 @@ Monster.addEquipped(builder, axe);
 Monster.addPath(builder, path);
 int orc = Monster.endMonster(builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 // Create our monster using `startMonster()` and `endMonster()`.
 Monster.startMonster(builder)
@@ -1376,9 +1358,9 @@ Monster.addEquipped(builder, axe)
 Monster.addPath(builder, path)
 val orc = Monster.endMonster(builder)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 // Create our monster using `StartMonster()` and `EndMonster()`.
 Monster.StartMonster(builder);
@@ -1393,9 +1375,9 @@ Monster.AddEquipped(builder, axe.Value); // Axe
 Monster.AddPath(builder, path);
 var orc = Monster.EndMonster(builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // Create our monster using `MonsterStart()` and `MonsterEnd()`.
 sample.MonsterStart(builder)
@@ -1410,9 +1392,9 @@ sample.MonsterAddEquipped(builder, axe)
 sample.MonsterAddPath(builder, path)
 orc := sample.MonsterEnd(builder)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 # Create our monster by using `Monster.Start()` and `Monster.End()`.
 MyGame.Sample.Monster.Start(builder)
@@ -1430,9 +1412,9 @@ MyGame.Sample.Monster.AddEquipped(builder, axe)
 MyGame.Sample.Monster.AddPath(builder, path)
 orc = MyGame.Sample.Monster.End(builder)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // Create our monster by using `startMonster()` and `endMonster()`.
 MyGame.Sample.Monster.startMonster(builder);
@@ -1448,9 +1430,9 @@ MyGame.Sample.Monster.addEquipped(builder, axe);
 MyGame.Sample.Monster.addPath(builder, path);
 var orc = MyGame.Sample.Monster.endMonster(builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // Create our monster by using `startMonster()` and `endMonster()`.
 MyGame.Sample.Monster.startMonster(builder);
@@ -1466,9 +1448,9 @@ MyGame.Sample.Monster.addEquipped(builder, axe);
 MyGame.Sample.Monster.addPath(builder, path);
 let orc = MyGame.Sample.Monster.endMonster(builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // Create our monster by using `StartMonster()` and `EndMonster()`.
 \MyGame\Sample\Monster::StartMonster($builder);
@@ -1484,9 +1466,9 @@ let orc = MyGame.Sample.Monster.endMonster(builder);
 \MyGame\Sample\Monster::AddPath($builder, $path);
 $orc = \MyGame\Sample\Monster::EndMonster($builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // Using the Builder API:
 // Set his hit points to 300 and his mana to 150.
@@ -1537,9 +1519,9 @@ final myGame.MonsterBuilder orcBuilder = new myGame.MonsterBuilder(
  
 final int orc = orcBuilder.finish(builder);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- Create our monster by using Start() andEnd()
 monster.Start(builder)
@@ -1554,9 +1536,9 @@ monster.AddEquipped(builder, axe)
 monster.AddPath(builder, path)
 local orc = monster.End(builder)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 let orc = MyGame_Sample_MonsterBuilder { b }
     .start()
@@ -1571,9 +1553,9 @@ let orc = MyGame_Sample_MonsterBuilder { b }
     .add_path(path)
     .end()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Create the monster using the `Monster::create` helper function. This
 // function accepts a `MonsterArgs` struct, which supplies all of the data
@@ -1593,9 +1575,9 @@ let orc = Monster::create(&mut builder, &MonsterArgs{
     ..Default::default()
 });
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 let start = Monster.startMonster(&builder)
 Monster.add(pos: Vec3(x: 1, y: 2, z: 3), &builder)
@@ -1608,9 +1590,7 @@ Monster.add(equippedType: .weapon, &builder)
 Monster.add(equipped: axe, &builder)
 var orc = Monster.endMonster(&builder, start: start)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 Note how we create Vec3 struct in-line in the table. Unlike tables, structs are
 simple combinations of scalars that are always stored inline, just like scalars
@@ -1639,73 +1619,71 @@ Type and the Equipped union itself.
 
 Here is a repetition of these lines, to help highlight them more clearly:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 monster_builder.add_equipped_type(Equipment_Weapon); // Union type
 monster_builder.add_equipped(axe.Union()); // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 Monster.addEquippedType(builder, Equipment.Weapon); // Union type
 Monster.addEquipped(axe); // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 Monster.addEquippedType(builder, Equipment.Weapon) // Union type
 Monster.addEquipped(axe) // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 Monster.AddEquippedType(builder, Equipment.Weapon); // Union type
 Monster.AddEquipped(builder, axe.Value); // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 sample.MonsterAddEquippedType(builder, sample.EquipmentWeapon) // Union type
 sample.MonsterAddEquipped(builder, axe) // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 MyGame.Sample.Monster.AddEquippedType(            # Union type
     builder, MyGame.Sample.Equipment.Equipment().Weapon)
 MyGame.Sample.Monster.AddEquipped(builder, axe)   # Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 MyGame.Sample.Monster.addEquippedType(builder, MyGame.Sample.Equipment.Weapon); // Union type
 MyGame.Sample.Monster.addEquipped(builder, axe); // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 MyGame.Sample.Monster.addEquippedType(builder, MyGame.Sample.Equipment.Weapon); // Union type
 MyGame.Sample.Monster.addEquipped(builder, axe); // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 \MyGame\Sample\Monster::AddEquippedType($builder, \MyGame\Sample\Equipment::Weapon); // Union type
 \MyGame\Sample\Monster::AddEquipped($builder, $axe); // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // using the builder API:
 ..addEquippedType(myGame.EquipmentTypeId.Weapon)
@@ -1715,164 +1693,156 @@ MyGame.Sample.Monster.addEquipped(builder, axe); // Union data
 equippedTypeId: myGame.EquipmentTypeId.Weapon,  // Union type
 equipped: axe,                                  // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 monster.AddEquippedType(builder, equipment.Weapon) -- Union type
 monster.AddEquipped(builder, axe) -- Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 .add_equipped_type(MyGame_Sample_Equipment_Weapon)
 .add_equipped(axe)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // You need to call `as_union_value` to turn an object into a type that
 // can be used as a union value.
 monster_builder.add_equipped_type(Equipment::Weapon); // Union type
 monster_builder.add_equipped(axe.as_union_value()); // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 Monster.add(equippedType: .weapon, builder) // Type of union
 Monster.add(equipped: axe, builder) // Union data
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 After you have created your buffer, you will have the offset to the root of
 the data in the orc variable, so you can finish the buffer by calling the
 appropriate finish method.
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 // Call `Finish()` to instruct the builder that this monster is complete.
 // Note: Regardless of how you created the `orc`, you still need to call
 // `Finish()` on the `FlatBufferBuilder`.
 builder.Finish(orc); // You could also call `FinishMonsterBuffer(builder, orc);`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 // Call `finish()` to instruct the builder that this monster is complete.
 builder.finish(orc); // You could also call `Monster.finishMonsterBuffer(builder, orc);`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 // Call `finish()` to instruct the builder that this monster is complete.
 builder.finish(orc) // You could also call `Monster.finishMonsterBuffer(builder, orc);`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 // Call `Finish()` to instruct the builder that this monster is complete.
 builder.Finish(orc.Value); // You could also call `Monster.FinishMonsterBuffer(builder, orc);`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // Call `Finish()` to instruct the builder that this monster is complete.
 builder.Finish(orc)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 # Call `Finish()` to instruct the builder that this monster is complete.
 builder.Finish(orc)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // Call `finish()` to instruct the builder that this monster is complete.
 builder.finish(orc); // You could also call `MyGame.Sample.Monster.finishMonsterBuffer(builder, orc);`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // Call `finish()` to instruct the builder that this monster is complete.
 builder.finish(orc); // You could also call `MyGame.Sample.Monster.finishMonsterBuffer(builder, orc);`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // Call `finish()` to instruct the builder that this monster is complete.
  $builder->finish($orc); // You may also call `\MyGame\Sample\Monster::FinishMonsterBuffer($builder, $orc);`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // Call `finish()` to instruct the builder that this monster is complete.
 // See the next code section, as in Dart `finish` will also return the byte array.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- Call 'Finish()' to instruct the builder that this monster is complete.
 builder:Finish(orc)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 // Call `Finish()` to instruct the builder that this monster is complete.
 builder.Finish(orc)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Call `finish()` to instruct the builder that this monster is complete.
 builder.finish(orc, None);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // Call `finish(offset:)` to instruct the builder that this monster is complete.
 builder.finish(offset: orc)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 The buffer is now ready to be stored somewhere, sent over the network, be
 compressed, or whatever you'd like to do with it. You can access the buffer
 like so:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 // This must be called after `Finish()`.
 uint8_t *buf = builder.GetBufferPointer();
 int size = builder.GetSize(); // Returns the size of the buffer that
                               // `GetBufferPointer()` points to.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 // This must be called after `finish()`.
 java.nio.ByteBuffer buf = builder.dataBuffer();
@@ -1882,9 +1852,9 @@ java.nio.ByteBuffer buf = builder.dataBuffer();
 // Alternatively this copies the above data out of the ByteBuffer for you:
 byte[] buf = builder.sizedByteArray();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 // This must be called after `finish()`.
 val buf = builder.dataBuffer()
@@ -1894,9 +1864,9 @@ val buf = builder.dataBuffer()
 // Alternatively this copies the above data out of the ByteBuffer for you:
 val buf = builder.sizedByteArray()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 // This must be called after `Finish()`.
 var buf = builder.DataBuffer; // Of type `FlatBuffers.ByteBuffer`.
@@ -1907,37 +1877,37 @@ var buf = builder.DataBuffer; // Of type `FlatBuffers.ByteBuffer`.
 // Alternatively this copies the above data out of the ByteBuffer for you:
 byte[] buf = builder.SizedByteArray();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // This must be called after `Finish()`.
 buf := builder.FinishedBytes() // Of type `byte[]`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 # This must be called after `Finish()`.
 buf = builder.Output() // Of type `bytearray`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // This must be called after `finish()`.
 var buf = builder.asUint8Array(); // Of type `Uint8Array`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // This must be called after `finish()`.
 let buf = builder.asUint8Array(); // Of type `Uint8Array`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // This must be called after `finish()`.
 $buf = $builder->dataBuffer(); // Of type `Google\FlatBuffers\ByteBuffer`
@@ -1945,37 +1915,37 @@ $buf = $builder->dataBuffer(); // Of type `Google\FlatBuffers\ByteBuffer`
 // The end of the data is marked by buf->capacity(), so the size is
 // buf->capacity() - buf->getPosition().
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 final Uint8List buf = builder.finish(orc);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- Get the flatbuffer as a string containing the binary data
 local bufAsString = builder:Output()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 // This must be called after `Finish()`.
 let buf = builder.SizedCopy() // Of type `string`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // This must be called after `finish()`.
 // `finished_data` returns a byte slice.
 let buf = builder.finished_data(); // Of type `&[u8]`
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // This must be called after `finish()`.
 // `sizedByteArray` returns the finished buf of type [UInt8].
@@ -1983,9 +1953,7 @@ let buf = builder.sizedByteArray
 // or you can use to get an object of type Data
 let bufData = ByteBuffer(data: builder.data)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 Now you can write the bytes to a file or send them over the network. Make sure
 your file mode (or transfer protocol) is set to BINARY, not text. If you
@@ -2001,49 +1969,47 @@ access a FlatBuffer.
 This section requires the same import/include, namespace, etc. requirements as
 before:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 #include "monster_generated.h" // This was generated by `flatc`.
 
 using namespace MyGame::Sample; // Specified in the schema.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 import MyGame.Sample.*; //The `flatc` generated files. (Monster, Vec3, etc.)
  
 import com.google.flatbuffers.FlatBufferBuilder;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 import MyGame.Sample.* //The `flatc` generated files. (Monster, Vec3, etc.)
  
 import com.google.flatbuffers.FlatBufferBuilder
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 using FlatBuffers;
 using MyGame.Sample; // The `flatc` generated files. (Monster, Vec3, etc.)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 import (
     flatbuffers "github.com/google/flatbuffers/go"
     sample "MyGame/Sample"
 )
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 import flatbuffers
  
@@ -2053,9 +2019,9 @@ import MyGame.Sample.Color
 import MyGame.Sample.Monster
 import MyGame.Sample.Vec3
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // The following code is an example - use your desired module flavor by transpiling from TS. 
 var flatbuffers = require('/js/flatbuffers').flatbuffers;
@@ -2068,18 +2034,18 @@ var MyGame = require('./monster_generated').MyGame; // Generated by `flatc`.
 <script src="../js/flatbuffers.js"></script>
 <script src="monster_generated.js"></script> // Generated by `flatc`.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // note: import flatbuffers with your desired import method
  
 // note: the `./monster_generated.ts` file was previously generated by `flatc` above using the `monster.fbs` schema
 import { MyGame } from './monster_generated';
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // It is recommended that your use PSR autoload when using FlatBuffers in PHP.
 // Here is an example from `SampleBinary.php`:
@@ -2100,16 +2066,16 @@ function __autoload($class_name) {
   }
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 import 'package:flat_buffers/flat_buffers.dart' as fb;
 import './monster_my_game.sample_generated.dart' as myGame;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- require the flatbuffers module
 local flatbuffers = require("flatbuffers")
@@ -2121,16 +2087,16 @@ local monster = require("MyGame.Sample.Monster")
 local vec3 = require("MyGame.Sample.Vec3")
 local weapon = require("MyGame.Sample.Weapon")
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 import from "../lobster/"  // Where to find flatbuffers.lobster
 import monster_generated
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // import the flatbuffers runtime library
 extern crate flatbuffers;
@@ -2145,24 +2111,22 @@ pub use monster_generated::my_game::sample::{get_root_as_monster,
                                              Vec3,
                                              Weapon, WeaponArgs};
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 /**
 // make sure that monster_generated.swift is included in your project
 */
 import Flatbuffers
- 
+
 // typealiases for convenience
 typealias Monster = MyGame1_Sample_Monster
 typealias Weapon = MyGame1_Sample_Weapon
 typealias Color = MyGame1_Sample_Color
 typealias Vec3 = MyGame1_Sample_Vec3
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 Then, assuming you have a buffer of bytes received from disk, network, etc.,
 you can start accessing the buffer like so:
@@ -2170,23 +2134,21 @@ you can start accessing the buffer like so:
 **Again, make sure you read the bytes in BINARY mode, otherwise the code below
 won't work.**
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 uint8_t *buffer_pointer = /* the data you just read */;
- 
+
 // Get a pointer to the root object inside the buffer.
 auto monster = GetMonster(buffer_pointer);
- 
+
 // `monster` is of type `Monster *`.
 // Note: root object pointers are NOT the same as `buffer_pointer`.
 // `GetMonster` is a convenience function that calls `GetRoot<Monster>`,
 // the latter is also available for non-root types.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 byte[] bytes = /* the data you just read */
 java.nio.ByteBuffer buf = java.nio.ByteBuffer.wrap(bytes);
@@ -2194,9 +2156,9 @@ java.nio.ByteBuffer buf = java.nio.ByteBuffer.wrap(bytes);
 // Get an accessor to the root object inside the buffer.
 Monster monster = Monster.getRootAsMonster(buf);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val bytes = /* the data you just read */
 val buf = java.nio.ByteBuffer.wrap(bytes)
@@ -2204,9 +2166,9 @@ val buf = java.nio.ByteBuffer.wrap(bytes)
 // Get an accessor to the root object inside the buffer.
 Monster monster = Monster.getRootAsMonster(buf)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 byte[] bytes = /* the data you just read */
 var buf = new ByteBuffer(bytes);
@@ -2214,9 +2176,9 @@ var buf = new ByteBuffer(bytes);
 // Get an accessor to the root object inside the buffer.
 var monster = Monster.GetRootAsMonster(buf);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 var buf []byte = /* the data you just read */
  
@@ -2228,9 +2190,9 @@ monster := sample.GetRootAsMonster(buf, 0)
 // would need to pass in the offset of `builder.Head()`, as the builder
 // constructs the buffer backwards, so may not start at offset 0.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 buf = /* the data you just read, in an object of type "bytearray" */
  
@@ -2242,9 +2204,9 @@ monster = MyGame.Sample.Monster.Monster.GetRootAs(buf, 0)
 # you would need to pass in the offset of `builder.Head()`, as the builder
 # constructs the buffer backwards, so may not start at offset 0.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // the data you just read, as a `Uint8Array`
 // Note that the example here uses `readFileSync` from the built-in `fs` module,
@@ -2256,9 +2218,9 @@ var buf = new flatbuffers.ByteBuffer(bytes);
 // Get an accessor to the root object inside the buffer.
 var monster = MyGame.Sample.Monster.getRootAsMonster(buf);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // the data you just read, as a `Uint8Array`.
 // Note that the example here uses `readFileSync` from the built-in `fs` module,
@@ -2270,9 +2232,9 @@ let buf = new flatbuffers.ByteBuffer(bytes);
 // Get an accessor to the root object inside the buffer.
 let monster = MyGame.Sample.Monster.getRootAsMonster(buf);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 $bytes = /* the data you just read, in a string */
 $buf = Google\FlatBuffers\ByteBuffer::wrap($bytes);
@@ -2280,17 +2242,17 @@ $buf = Google\FlatBuffers\ByteBuffer::wrap($bytes);
 // Get an accessor to the root object inside the buffer.
 $monster = \MyGame\Sample\Monster::GetRootAsMonster($buf);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 List<int> data = ... // the data, e.g. from file or network
 // A generated factory constructor that will read the data.
 myGame.Monster monster = new myGame.Monster(data);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 local bufAsString =   -- The data you just read in
  
@@ -2300,27 +2262,27 @@ local buf = flatbuffers.binaryArray.New(bufAsString)
 -- Get an accessor to the root object insert the buffer
 local mon = monster.GetRootAsMonster(buf, 0)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 buf = /* the data you just read, in a string */
  
 // Get an accessor to the root object inside the buffer.
 let monster = MyGame_Sample_GetRootAsMonster(buf)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 let buf = /* the data you just read, in a &[u8] */
  
 // Get an accessor to the root object inside the buffer.
 let monster = get_root_as_monster(buf);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // create a ByteBuffer(:) from an [UInt8] or Data()
 let buf = // Get your data
@@ -2328,40 +2290,36 @@ let buf = // Get your data
 // Get an accessor to the root object inside the buffer.
 let monster = Monster.getRootAsMonster(bb: ByteBuffer(bytes: buf))
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 If you look in the generated files from the schema compiler, you will see it
 generated accessors for all non-deprecated fields. For example:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 auto hp = monster->hp();
 auto mana = monster->mana();
 auto name = monster->name()->c_str();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 short hp = monster.hp();
 short mana = monster.mana();
 String name = monster.name();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val hp = monster.hp
 val mana = monster.mana
 val name = monster.name
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 // For C#, unlike most other languages support by FlatBuffers, most values (except for
 // vectors and unions) are available as properties instead of accessor methods.
@@ -2369,49 +2327,49 @@ var hp = monster.Hp
 var mana = monster.Mana
 var name = monster.Name
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 hp := monster.Hp()
 mana := monster.Mana()
 name := string(monster.Name()) // Note: `monster.Name()` returns a byte[].
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 hp = monster.Hp()
 mana = monster.Mana()
 name = monster.Name()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 var hp = monster.hp();
 var mana = monster.mana();
 var name = monster.name();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 let hp = monster.hp();
 let mana = monster.mana();
 let name = monster.name();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 $hp = $monster->getHp();
 $mana = $monster->getMana();
 $name = monster->getName();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 // For Dart, unlike other languages support by FlatBuffers, most values
 // are available as properties instead of accessor methods.
@@ -2419,42 +2377,40 @@ var hp = monster.hp;
 var mana = monster.mana;
 var name = monster.name;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 local hp = mon:Hp()
 local mana = mon:Mana()
 local name = mon:Name()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 let hp = monster.hp
 let mana = monster.mana
 let name = monster.name
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Get and test some scalar types from the FlatBuffer.
 let hp = monster.hp();
 let mana = monster.mana();
 let name = monster.name();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 let hp = monster.hp
 let mana = monster.mana
 let name = monster.name // returns an optional string
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 These should hold 300, 150, and "Orc" respectively.
 
@@ -2463,45 +2419,43 @@ retrieve it.
 
 To access sub-objects, in the case of our pos, which is a Vec3:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 auto pos = monster->pos();
 auto x = pos->x();
 auto y = pos->y();
 auto z = pos->z();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 Vec3 pos = monster.pos();
 float x = pos.x();
 float y = pos.y();
 float z = pos.z();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val pos = monster.pos!!
 val x = pos.x
 val y = pos.y
 val z = pos.z
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 var pos = monster.Pos.Value;
 var x = pos.X;
 var y = pos.Y;
 var z = pos.Z;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 pos := monster.Pos(nil)
 x := pos.X()
@@ -2514,90 +2468,88 @@ z := pos.Z()
 // allows you to reuse it across many calls to reduce the amount of object
 // allocation/garbage collection.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 pos = monster.Pos()
 x = pos.X()
 y = pos.Y()
 z = pos.Z()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 var pos = monster.pos();
 var x = pos.x();
 var y = pos.y();
 var z = pos.z();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 let pos = monster.pos();
 let x = pos.x();
 let y = pos.y();
 let z = pos.z();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 $pos = $monster->getPos();
 $x = $pos->getX();
 $y = $pos->getY();
 $z = $pos->getZ();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 myGame.Vec3 pos = monster.pos;
 double x = pos.x;
 double y = pos.y;
 double z = pos.z;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 local pos = mon:Pos()
 local x = pos:X()
 local y = pos:Y()
 local z = pos:Z()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 let pos = monster.pos
 let x = pos.x
 let y = pos.y
 let z = pos.z
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 let pos = monster.pos().unwrap();
 let x = pos.x();
 let y = pos.y();
 let z = pos.z();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 let pos = monster.pos
 let x = pos.x
 let y = pos.y
 let z = pos.z
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 x, y, and z will contain 1.0, 2.0, and 3.0, respectively.
 
@@ -2607,94 +2559,92 @@ Similarly, we can access elements of the inventory vector by indexing it.
 You can also iterate over the length of the array/vector representing the
 FlatBuffers vector.
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 auto inv = monster->inventory(); // A pointer to a `flatbuffers::Vector<>`.
 auto inv_len = inv->size();
 auto third_item = inv->Get(2);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 int invLength = monster.inventoryLength();
 byte thirdItem = monster.inventory(2);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val invLength = monster.inventoryLength
 val thirdItem = monster.inventory(2)!!
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 int invLength = monster.InventoryLength;
 var thirdItem = monster.Inventory(2);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 invLength := monster.InventoryLength()
 thirdItem := monster.Inventory(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 inv_len = monster.InventoryLength()
 third_item = monster.Inventory(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 var invLength = monster.inventoryLength();
 var thirdItem = monster.inventory(2);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 let invLength = monster.inventoryLength();
 let thirdItem = monster.inventory(2);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 $inv_len = $monster->getInventoryLength();
 $third_item = $monster->getInventory(2);
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 int invLength = monster.inventory.length;
 var thirdItem = monster.inventory[2];
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 local invLength = mon:InventoryLength()
 local thirdItem = mon:Inventory(3) -- Lua is 1-based
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 let inv_len = monster.inventory_length
 let third_item = monster.inventory(2)
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Get and test an element from the `inventory` FlatBuffer's `vector`.
 let inv = monster.inventory().unwrap();
@@ -2703,9 +2653,9 @@ let inv = monster.inventory().unwrap();
 // this type, a `u8` vector, is safe on all platforms:
 let third_item = inv[2];
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // Get a the count of objects in the vector
 let count = monster.inventoryCount
@@ -2717,49 +2667,45 @@ let object = monster.inventory(at: 4)
 let inv = monster.inventory
 // inv[4] should equal object
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 For vectors of tables, you can access the elements like any other vector,
 except you need to handle the result as a FlatBuffer table:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 auto weapons = monster->weapons(); // A pointer to a `flatbuffers::Vector<>`.
 auto weapon_len = weapons->size();
 auto second_weapon_name = weapons->Get(1)->name()->str();
 auto second_weapon_damage = weapons->Get(1)->damage();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 int weaponsLength = monster.weaponsLength();
 String secondWeaponName = monster.weapons(1).name();
 short secondWeaponDamage = monster.weapons(1).damage();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val weaponsLength = monster.weaponsLength
 val secondWeaponName = monster.weapons(1)!!.name
 val secondWeaponDamage = monster.weapons(1)!!.damage
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 int weaponsLength = monster.WeaponsLength;
 var secondWeaponName = monster.Weapons(1).Name;
 var secondWeaponDamage = monster.Weapons(1).Damage;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 weaponLength := monster.WeaponsLength()
 weapon := new(sample.Weapon) // We need a `sample.Weapon` to pass into `monster.Weapons()`
@@ -2769,65 +2715,65 @@ if monster.Weapons(weapon, 1) {
         secondWeaponDamage := weapon.Damage()
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 weapons_length = monster.WeaponsLength()
 second_weapon_name = monster.Weapons(1).Name()
 second_weapon_damage = monster.Weapons(1).Damage()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 var weaponsLength = monster.weaponsLength();
 var secondWeaponName = monster.weapons(1).name();
 var secondWeaponDamage = monster.weapons(1).damage();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 let weaponsLength = monster.weaponsLength();
 let secondWeaponName = monster.weapons(1).name();
 let secondWeaponDamage = monster.weapons(1).damage();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 $weapons_len = $monster->getWeaponsLength();
 $second_weapon_name = $monster->getWeapons(1)->getName();
 $second_weapon_damage = $monster->getWeapons(1)->getDamage();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 int weaponsLength = monster.weapons.length;
 var secondWeaponName = monster.weapons[1].name;
 var secondWeaponDamage = monster.Weapons[1].damage;
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 local weaponsLength = mon:WeaponsLength()
 local secondWeaponName = mon:Weapon(2):Name()
 local secondWeaponDamage = mon:Weapon(2):Damage()
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 let weapons_length = monster.weapons_length
 let second_weapon_name = monster.weapons(1).name
 let second_weapon_damage = monster.weapons(1).damage
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Get and test the `weapons` FlatBuffers's `vector`.
 let weps = monster.weapons().unwrap();
@@ -2837,9 +2783,9 @@ let wep2 = weps.get(1);
 let second_weapon_name = wep2.name();
 let second_weapon_damage = wep2.damage();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // Get the count of weapon objects
 let wepsCount = monster.weaponsCount
@@ -2848,9 +2794,7 @@ let weapon2 = monster.weapons(at: 1)
 let weaponName = weapon2.name
 let weaponDmg = weapon2.damage
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 Last, we can access our Equipped FlatBuffer union. Just like when we created
 the union, we need to get both parts of the union: the type and the data.
@@ -2858,9 +2802,7 @@ the union, we need to get both parts of the union: the type and the data.
 We can access the type to dynamically cast the data as needed (since the union
 only stores a FlatBuffer table).
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 auto union_type = monster.equipped_type();
  
@@ -2872,9 +2814,9 @@ if (union_type == Equipment_Weapon) {
   auto weapon_damage = weapon->damage();    // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 int unionType = monster.EquippedType();
  
@@ -2886,9 +2828,9 @@ if (unionType == Equipment.Weapon) {
   short weaponDamage = weapon.damage(); // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val unionType = monster.EquippedType
  
@@ -2900,9 +2842,9 @@ if (unionType == Equipment.Weapon) {
   val weaponDamage = weapon.damage // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 var unionType = monster.EquippedType;
  
@@ -2913,9 +2855,9 @@ if (unionType == Equipment.Weapon) {
   var weaponDamage = weapon.Damage; // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // We need a `flatbuffers.Table` to capture the output of the
 // `monster.Equipped()` function.
@@ -2936,9 +2878,9 @@ if monster.Equipped(unionTable) {
         }
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 union_type = monster.EquippedType()
  
@@ -2951,9 +2893,9 @@ if union_type == MyGame.Sample.Equipment.Equipment().Weapon:
   weapon_name = union_weapon.Name()     // 'Axe'
   weapon_damage = union_weapon.Damage() // 5
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 var unionType = monster.equippedType();
  
@@ -2962,9 +2904,9 @@ if (unionType == MyGame.Sample.Equipment.Weapon) {
   var weaponDamage = monster.equipped(new MyGame.Sample.Weapon()).damage(); // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 let unionType = monster.equippedType();
  
@@ -2973,9 +2915,9 @@ if (unionType == MyGame.Sample.Equipment.Weapon) {
   let weaponDamage = monster.equipped(new MyGame.Sample.Weapon()).damage(); // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 $union_type = $monster->getEquippedType();
  
@@ -2984,9 +2926,9 @@ if ($union_type == \MyGame\Sample\Equipment::Weapon) {
   $weapon_damage = $monster->getEquipped(new \MyGame\Sample\Weapon())->getDamage(); // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 var unionType = monster.equippedType.value;
  
@@ -2997,9 +2939,9 @@ if (unionType == myGame.EquipmentTypeId.Weapon.value) {
   var weaponDamage = weapon.damage; // 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 local unionType = mon:EquippedType()
  
@@ -3011,9 +2953,9 @@ if unionType == equipment.Weapon then
   local weaponDamage = unionWeapon:Damage() -- 5
 end
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 union_type = monster.equipped_type
  
@@ -3025,9 +2967,9 @@ if union_type == MyGame_Sample_Equipment_Weapon:
     let weapon_name = union_weapon.name     // "Axe"
     let weapon_damage = union_weapon.damage // 5
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // Get and test the `Equipment` union (`equipped` field).
 // `equipped_as_weapon` returns a FlatBuffer handle much like normal table
@@ -3038,9 +2980,9 @@ if monster.equipped_type() == Equipment::Weapon {
   let weapon_name = equipped.name();
   let weapon_damage = equipped.damage();
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 // Get and check if the monster has an equipped item
 if monster.equippedType == .weapon {
@@ -3049,9 +2991,7 @@ if monster.equippedType == .weapon {
   let dmg = _weapon.damage // should return 5
 }
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 ## Mutating FlatBuffers
 
@@ -3072,99 +3012,97 @@ To get non-const accessors, invoke flatc with --gen-mutable.
 Similar to how we read fields using the accessors above, we can now use the
 mutators like so:
 
-{{< code-snippet-group groupId="tutorial">}}
-
-{{< code-snippet-group-observer groupId="tutorial" tabName="C++">}}
+{{< tutorial-lang-observer lang="C++">}}
 {{< highlight cpp >}}
 auto monster = GetMutableMonster(buffer_pointer);  // non-const
 monster->mutate_hp(10);                      // Set the table `hp` field.
 monster->mutable_pos()->mutate_z(4);         // Set struct field.
 monster->mutable_inventory()->Mutate(0, 1);  // Set vector element.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Java">}}
+{{< tutorial-lang-observer lang="Java">}}
 {{< highlight java >}}
 Monster monster = Monster.getRootAsMonster(buf);
 monster.mutateHp(10);            // Set table field.
 monster.pos().mutateZ(4);        // Set struct field.
 monster.mutateInventory(0, 1);   // Set vector element.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Kotlin">}}
+{{< tutorial-lang-observer lang="Kotlin">}}
 {{< highlight kotlin >}}
 val monster = Monster.getRootAsMonster(buf)
 monster.mutateHp(10)            // Set table field.
 monster.pos!!.mutateZ(4)        // Set struct field.
 monster.mutateInventory(0, 1)   // Set vector element.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="C#">}}
+{{< tutorial-lang-observer lang="C#">}}
 {{< highlight csharp >}}
 var monster = Monster.GetRootAsMonster(buf);
 monster.MutateHp(10);            // Set table field.
 monster.Pos.MutateZ(4);          // Set struct field.
 monster.MutateInventory(0, 1);   // Set vector element.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Go">}}
+{{< tutorial-lang-observer lang="Go">}}
 {{< highlight go >}}
 // API for mutating FlatBuffers is not yet available in Go.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Python">}}
+{{< tutorial-lang-observer lang="Python">}}
 {{< highlight python >}}
 # API for mutating FlatBuffers is not yet available in Python.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Javascript">}}
+{{< tutorial-lang-observer lang="JavaScript">}}
 {{< highlight javascript >}}
 // API for mutating FlatBuffers is not yet supported in JavaScript.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Typescript">}}
+{{< tutorial-lang-observer lang="TypeScript">}}
 {{< highlight typescript >}}
 // API for mutating FlatBuffers is not yet supported in TypeScript.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="PHP">}}
+{{< tutorial-lang-observer lang="PHP">}}
 {{< highlight php >}}
 // API for mutating FlatBuffers is not yet supported in PHP.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Dart">}}
+{{< tutorial-lang-observer lang="Dart">}}
 {{< highlight dart >}}
 /* API for mutating FlatBuffers not yet available in Dart. */
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lua">}}
+{{< tutorial-lang-observer lang="Lua">}}
 {{< highlight lua >}}
 -- API for mutating FlatBuffers is not yet available in Lua.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Lobster">}}
+{{< tutorial-lang-observer lang="Lobster">}}
 {{< highlight lobster >}}
 // API for mutating FlatBuffers is not yet available in Lobster.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Rust">}}
+{{< tutorial-lang-observer lang="Rust">}}
 {{< highlight rust >}}
 // API for mutating FlatBuffers is not yet available in Rust.
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
+{{</ tutorial-lang-observer>}}
 
-{{< code-snippet-group-observer groupId="tutorial" tabName="Swift">}}
+{{< tutorial-lang-observer lang="Swift">}}
 {{< highlight swift >}}
 let monster = Monster.getRootAsMonster(bb: ByteBuffer(bytes: buf))
 monster.mutate(hp: 10) // mutates a value in a table
@@ -3172,9 +3110,7 @@ monster.mutate(hp: 10) // mutates a value in a table
 monster.mutablePos.mutate(z: 4) // mutates a value in a struct
 monster.mutate(inventory: 6, at index: 0) // mutates a value in an Scalar array
 {{</ highlight>}}
-{{</ code-snippet-group-observer>}}
-
-{{</ code-snippet-group >}}
+{{</ tutorial-lang-observer>}}
 
 We use the somewhat verbose term mutate instead of set to indicate that this is
 a special use case, not to be confused with the default way of constructing

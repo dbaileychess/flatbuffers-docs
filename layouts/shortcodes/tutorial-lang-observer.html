@@ -1,0 +1,8 @@
+{{ $lang := .Get "lang" }}
+
+<div
+  class="tutorial-lang-observer"
+  :class="{show: tutorialLanguage == '{{ $lang }}'}"
+>
+  {{ .Inner }}
+</div>
