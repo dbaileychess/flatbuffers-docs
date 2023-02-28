@@ -75,7 +75,11 @@ header {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 960px) {
+  .header-content {
+    width: min(1200px, 100%);
+    margin: auto;
+  }
   .menu-button {
     display: none;
   }

@@ -1,8 +1,7 @@
 aside {
-  display: none;
-  position: fixed;
+  position: sticky;
   top: 5rem;
-
+  display: none;
   height: min-content;
 }
 
@@ -10,7 +9,7 @@ aside {
   display: flex;
   flex-direction: column;
   padding-left: 1.5rem;
-  width: 12rem;
+  width: 11rem;
 }
 
 .sidebar-content nav {

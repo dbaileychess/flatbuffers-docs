@@ -32,13 +32,14 @@
   <body>
     <div id="app">
       {{ partial "header/header.html" . }}
-      {{ partial "sidebar.html" . }}
       {{ partial "menu.html" . }}
       <main>
-        <div class="sidebar-filler"></div>
-        <div class="content">
-          {{ block "main" . }}{{ end }}
-        </div>
+          <div class="sidebar-filler">
+            {{ partial "sidebar.html" . }}
+          </div>
+          <div class="content">
+            {{ block "main" . }}{{ end }}
+          </div>
       </main>
     </div>
   </body>

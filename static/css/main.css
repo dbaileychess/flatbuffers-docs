@@ -8,20 +8,25 @@ main {
   display: flex;
   flex-grow: 1;
   scroll-padding-top: 10rem;
+  justify-content: center;
+}
+
+.main-wrapper {
+  display: flex;
 }
 
 .content {
   padding: 0rem 1rem;
   padding-bottom: 3rem;
   width: min(940px, 90%);
-  margin: auto;
   margin-top: 0;
   scroll-padding-top: 10rem;
 }
 
 .sidebar-filler {
   display: none;
-  width: 17rem;
+  width: min-content;
+  padding-top: 2.2rem;
 }
 
 li + li {
@@ -31,23 +36,6 @@ li + li {
 ul {
   margin: 0;
   padding-left: 1.5rem;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 3px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--gray5);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--gray8);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
 }
 
 @media (min-width: 960px) {
