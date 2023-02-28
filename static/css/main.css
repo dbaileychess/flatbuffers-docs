@@ -36,9 +36,9 @@ ul {
   padding-left: 1.5rem;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1000px) {
   .content {
-    width: min(860px, 80%);
+    width: min(1080px, 80%);
   }
 
   .sidebar-filler {
