@@ -8,6 +8,8 @@ main {
   display: flex;
   scroll-padding-top: 10rem;
   justify-content: center;
+  width: 90%;
+  margin: auto;
 }
 
 .main-wrapper {
@@ -16,9 +18,9 @@ main {
 
 .content {
   padding-bottom: 3rem;
-  width: 90%;
   margin-top: 0;
   scroll-padding-top: 10rem;
+  width: 100%;
 }
 
 .sidebar-filler {
@@ -37,8 +39,8 @@ ul {
 }
 
 @media (min-width: 1000px) {
-  .content {
-    width: min(1080px, 80%);
+  main {
+    width: min(1200px, 80%);
   }
 
   .sidebar-filler {
