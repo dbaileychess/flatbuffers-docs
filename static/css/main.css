@@ -16,7 +16,7 @@ body {
   padding-bottom: 3rem;
   margin-top: 0;
   scroll-padding-top: 10rem;
-  width: min(960px, 100%);
+  width: 100%;
 }
 
 .sidebar-filler {
@@ -41,5 +41,10 @@ ul {
 
   .sidebar-filler {
     display: block;
+  }
+
+  .content {
+    max-width: 960px;
+    flex-grow: 1;
   }
 }
