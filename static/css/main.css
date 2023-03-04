@@ -5,11 +5,8 @@ body {
 }
 
 .main-inner {
-  display: flex;
   scroll-padding-top: 10rem;
-  justify-content: center;
-  width: 90%;
-  margin: auto;
+  padding: 0 3rem;
 }
 
 .content {
@@ -22,7 +19,7 @@ body {
 .sidebar-filler {
   display: none;
   width: min-content;
-  padding-top: 2.2rem;
+  border-right: 1px solid var(--gray4);
 }
 
 li + li {
@@ -36,7 +33,9 @@ ul {
 
 @media (min-width: 1000px) {
   .main-inner {
-    width: min(1200px, 80%);
+    display: flex;
+    padding-left: 1rem;
+    gap: 4rem;
   }
 
   .sidebar-filler {
@@ -44,7 +43,6 @@ ul {
   }
 
   .content {
-    max-width: 900px;
-    min-width: 900px;
+    width: min(960px, 80%);
   }
 }

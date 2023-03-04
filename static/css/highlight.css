@@ -1,8 +1,9 @@
 .highlight {
-  width: auto;
+  max-width: auto;
 }
 
 .highlight pre {
+  padding: 0.5rem;
   padding: 1rem;
   overflow: auto;
   border: 1px solid var(--gray6);
