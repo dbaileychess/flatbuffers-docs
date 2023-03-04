@@ -44,7 +44,7 @@ ul {
   }
 
   .content {
-    max-width: 960px;
-    flex-grow: 1;
+    max-width: 900px;
+    min-width: 900px;
   }
 }
