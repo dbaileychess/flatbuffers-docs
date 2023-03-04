@@ -40,11 +40,13 @@
       {{ partial "header/header.html" . }}
       {{ partial "menu.html" . }}
       <main>
-        <div class="sidebar-filler">
-          {{ partial "sidebar.html" . }}
-        </div>
-        <div class="content">
-          {{ block "main" . }}{{ end }}
+        <div class="main-inner">
+          <div class="sidebar-filler">
+            {{ partial "sidebar.html" . }}
+          </div>
+          <div class="content">
+            {{ block "main" . }}{{ end }}
+          </div>
         </div>
       </main>
     </div>

@@ -4,7 +4,7 @@ body {
   scroll-padding-top: 10rem;
 }
 
-main {
+.main-inner {
   display: flex;
   scroll-padding-top: 10rem;
   justify-content: center;
@@ -12,15 +12,11 @@ main {
   margin: auto;
 }
 
-.main-wrapper {
-  display: flex;
-}
-
 .content {
   padding-bottom: 3rem;
   margin-top: 0;
   scroll-padding-top: 10rem;
-  width: 100%;
+  width: min(960px, 100%);
 }
 
 .sidebar-filler {
@@ -39,7 +35,7 @@ ul {
 }
 
 @media (min-width: 1000px) {
-  main {
+  .main-inner {
     width: min(1200px, 80%);
   }
 
