@@ -45,7 +45,12 @@
             {{ partial "sidebar.html" . }}
           </div>
           <div class="content">
+			  <h1>{{ .Title }}</h1>
             {{ block "main" . }}{{ end }}
+          </div>
+          <div class="toc">
+            <div class="toc-heading">What's on this page</div>
+            {{ .TableOfContents }}
           </div>
         </div>
       </main>

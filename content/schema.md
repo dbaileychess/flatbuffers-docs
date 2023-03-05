@@ -5,8 +5,6 @@ draft: false
 weight: 1
 ---
 
-# Writing a schema
-
 The syntax of the schema language (aka IDL,
 [Interface Definition Language](https://en.wikipedia.org/wiki/Interface_description_language))
 should look quite familiar to users of any of the C family of languages, and
@@ -45,7 +43,7 @@ root_type Monster;
 
 (`Weapon` & `Pickup` not defined as part of this example).
 
-### Tables
+## Tables
 
 Tables are the main way of defining objects in FlatBuffers, and consist of a
 name (here `Monster`) and a list of fields. Each field has a name, a type, and
@@ -75,7 +73,7 @@ for forward and backwards compatibility. Note that:
 
 See "Schema evolution examples" below for more on this topic.
 
-### Structs
+## Structs
 
 Similar to a table, only now none of the fields are optional (so no defaults
 either), and fields may not be added or be deprecated. Structs may only contain
@@ -84,7 +82,7 @@ changes will ever be made (as quite clear in the example `Vec3`). Structs use
 less memory than tables and are even faster to access (they are always stored
 in-line in their parent object, and use no virtual table).
 
-### Types
+## Types
 
 Built-in scalar types are
 
@@ -115,7 +113,7 @@ same-size data where a `reinterpret_cast` would give you a desirable result,
 e.g. you could change a `uint` to an `int` if no values in current data use the
 high bit yet.
 
-### Arrays
+## Arrays
 
 Arrays are a convenience short-hand for a fixed-length collection of elements.
 Arrays can be used to replace the following schema:
@@ -140,7 +138,7 @@ Both representations are binary equivalent.
 
 Arrays are currently only supported in a `struct`.
 
-### Default, Optional and Required Values
+## Default, Optional and Required Values
 
 There are three, mutually exclusive, reactions to the non-presence of a table's
 field in the binary data:
@@ -171,7 +169,7 @@ scalar since non-presence would not be overloaded with a previous default value.
 There are situations, however, where this may be desirable, especially if you
 can ensure a simultaneous rebuild of all code.
 
-### Enums
+## Enums
 
 Define a sequence of named constants, each with a given value, or increasing by
 one from the previous one. The default first value is `0`. As you can see in the
@@ -186,7 +184,7 @@ Typically, enum values should only ever be added, never removed (there is no
 deprecation for enums). This requires code to handle forwards compatibility
 itself, by handling unknown enum values.
 
-### Unions
+## Unions
 
 Unions share a lot of properties with enums, but instead of new names for
 constants, you use names of tables. You can then declare a union field, which
@@ -224,12 +222,12 @@ table. There is also experimental support for other types besides tables in
 unions, in particular structs and strings. There's no direct support for scalars
 in unions, but they can be wrapped in a struct at no space cost.
 
-### Namespaces
+## Namespaces
 
 These will generate the corresponding namespace in C++ for all helper code, and
 packages in Java. You can use `.` to specify nested namespaces / packages.
 
-### Includes
+## Includes
 
 You can include other schemas files in your current one, e.g.:
 
@@ -245,13 +243,13 @@ When using the `flatc` compiler to generate code for schema definitions, only
 definitions in the current file will be generated, not those from the included
 files (those you still generate separately).
 
-### Root type
+## Root type
 
 This declares what you consider to be the root table of the serialized data.
 This is particularly important for parsing JSON data, which doesn't include
 object type information.
 
-### File identification and extension
+## File identification and extension
 
 Typically, a FlatBuffer binary buffer is not self-describing, i.e. it needs you
 to know its schema to parse it correctly. But if you want to use a FlatBuffer as
@@ -294,7 +292,7 @@ declaration in the schema will change that to whatever you want:
 file_extension "ext";
 ```
 
-### RPC interface declarations
+## RPC interface declarations
 
 You can declare RPC calls in a schema, that define a set of functions that take
 a FlatBuffer as an argument (the request) and return a FlatBuffer as the
@@ -311,7 +309,7 @@ What code this produces and how it is used depends on language and RPC system
 used, there is preliminary support for GRPC through the `--grpc` code generator,
 see `grpc/tests` for an example.
 
-### Comments & documentation
+## Comments & documentation
 
 May be written as in most C-based languages. Additionally, a triple comment
 (`///`) on a line by itself signals that a comment is documentation for whatever
@@ -319,7 +317,7 @@ is declared on the line after it (table/struct/field/enum/union/element), and
 the comment is output in the corresponding C++ code. Multiple such lines per
 item are allowed.
 
-### Attributes
+## Attributes
 
 Attributes may be attached to a declaration, behind a field/enum value, or after
 the name of a table/struct/enum/union. These may either have a value or not.
@@ -476,7 +474,7 @@ flatbuffers_grammar), it accepts the following numerical literals:
 
 ## Guidelines
 
-### Efficiency
+## Efficiency
 
 FlatBuffers is all about efficiency, but to realize that efficiency you require
 an efficient schema. There are usually multiple choices on how to represent data
@@ -508,7 +506,7 @@ Remember that you can share data (refer to the same string/table within a
 buffer), so factoring out repeating data into its own data structure may be
 worth it.
 
-### Style guide
+## Style guide
 
 Identifiers in a schema are meant to translate to many different programming
 languages, so using the style of your "main" language is generally a bad idea.

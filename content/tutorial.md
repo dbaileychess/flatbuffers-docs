@@ -5,8 +5,6 @@ draft: false
 weight: 2
 ---
 
-# Tutorial
-
 This tutorial provides a basic example of how to work with FlatBuffers. We will
 step through a simple example application, which shows you how to:
 
