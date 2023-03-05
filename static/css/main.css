@@ -6,7 +6,7 @@ body {
 
 .main-inner {
   scroll-padding-top: 10rem;
-  padding: 0 3rem;
+  padding: 0 1rem;
 }
 
 .content {
@@ -19,7 +19,6 @@ body {
 .sidebar-filler {
   display: none;
   width: min-content;
-  border-right: 1px solid var(--gray4);
 }
 
 li + li {
@@ -34,8 +33,7 @@ ul {
 @media (min-width: 1000px) {
   .main-inner {
     display: flex;
-    padding-left: 1rem;
-    gap: 4rem;
+    justify-content: center;
   }
 
   .sidebar-filler {
