@@ -10,7 +10,7 @@ header {
   display: flex;
   align-items: center;
   gap: 0.1rem;
-  max-width: 95rem;
+  max-width: 82rem;
 }
 
 .header-home-link {
