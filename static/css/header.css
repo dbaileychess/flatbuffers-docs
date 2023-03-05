@@ -64,7 +64,7 @@ header {
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1000px) {
   .header-content {
     margin: auto;
   }
