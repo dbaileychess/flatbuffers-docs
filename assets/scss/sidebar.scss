@@ -18,22 +18,22 @@ aside {
 
 .sidebar-content .nav-link {
   font-weight: 500;
-  color: var(--gray10);
-  border-left: 3px solid var(--gray6);
+  color: $gray10;
+  border-left: 3px solid $gray6;
   padding: 0.2rem 1rem;
 }
 
 .sidebar-content .nav-link:hover {
-  color: var(--primary-color);
-  border-left: 3px solid var(--primary-color);
+  color: $primaryColor;
+  border-left: 3px solid $primaryColor;
 }
 
 .sidebar-content .nav-link.active {
-  color: var(--primary-color);
-  border-left: 3px solid var(--primary-color);
+  color: $primaryColor;
+  border-left: 3px solid $primaryColor;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: $mediaMd) {
   aside {
     display: block;
   }

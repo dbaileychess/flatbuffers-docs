@@ -1,0 +1,65 @@
+@import "variables.scss";
+
+html {
+  color: $gray12;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+li + li {
+  margin-top: 0.25rem;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.main-inner {
+  padding: 0 1rem;
+}
+
+.content {
+  padding-bottom: 3rem;
+  margin-top: 0;
+  width: 100%;
+}
+
+.heading-anchor {
+  margin-top: 0.5rem;
+  color: $gray12;
+}
+
+.sidebar-wrapper {
+  display: none;
+  width: min-content;
+}
+
+@media (min-width: $mediaMd) {
+  .main-inner {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .toc {
+    display: flex;
+  }
+
+  .content {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: $mediaLg) {
+  .sidebar-wrapper {
+    display: block;
+  }
+}

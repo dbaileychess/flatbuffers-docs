@@ -1,3 +1,5 @@
+// TODO: Instead of making this tutorial specific styles make it generic.
+
 #tutorial-lang-select {
   display: flex;
   flex-wrap: wrap;
@@ -7,12 +9,12 @@
 #tutorial-lang-select .tutorial-lang-option {
   min-width: 4rem;
   text-align: center;
-  border-bottom: 3px solid var(--gray7);
+  border-bottom: 3px solid $gray7;
   cursor: pointer;
 }
 
 #tutorial-lang-select .tutorial-lang-option.active {
-  border-bottom: 3px solid var(--primary-color);
+  border-bottom: 3px solid $primaryColor;
 }
 
 .tutorial-lang-observer {

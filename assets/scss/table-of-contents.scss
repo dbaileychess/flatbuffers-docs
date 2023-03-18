@@ -1,0 +1,49 @@
+@import "variables.scss";
+
+.toc {
+  display: none;
+  position: sticky;
+  top: 4.5rem;
+  flex-direction: column;
+  height: min-content;
+  max-width: 15rem;
+}
+
+.toc-heading {
+  font-weight: 600;
+  color: $gray11;
+}
+
+.toc a {
+  color: $gray12;
+  font-weight: 500;
+  color: $gray10;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  color: $primaryColor;
+}
+
+.toc ul {
+  list-style: none;
+}
+
+.toc li {
+  margin-top: 0;
+}
+
+.toc li::before {
+  content: "•";
+  color: $primaryColor;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+@media (min-width: 1000px) {
+  .toc {
+    display: flex;
+  }
+}

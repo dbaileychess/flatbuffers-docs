@@ -1,9 +1,11 @@
+@import "variables.scss";
+
 header {
   padding: 0.5rem 0.5rem;
   position: sticky;
   top: 0;
   background-color: white;
-  border-bottom: 1px solid var(--gray4);
+  border-bottom: 1px solid $gray4;
 }
 
 .header-content {
@@ -28,7 +30,7 @@ header {
   cursor: pointer;
   user-select: none;
   font-family: "Poppins", sans-serif;
-  color: var(--gray12);
+  color: $gray12;
   text-decoration: none;
 }
 
@@ -54,17 +56,17 @@ header {
   display: block;
   padding-left: 0.5rem;
   margin-left: 0.5rem;
-  border-left: 1px solid var(--gray6);
+  border-left: 1px solid $gray6;
   cursor: pointer;
 }
 
-@media (min-width: 640px) {
+@media (min-width: $mediaSm) {
   .header-social {
     gap: 1rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: $mediaLg) {
   .header-content {
     margin: auto;
   }

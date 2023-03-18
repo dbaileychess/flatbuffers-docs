@@ -1,0 +1,12 @@
+// Import normalize.scss first since other scss files will override default
+// properties.
+@import "normalize.scss";
+
+@import "header.scss";
+@import "highlight.scss";
+@import "mobile-menu.scss";
+@import "main.scss";
+@import "nav.scss";
+@import "sidebar.scss";
+@import "table-of-contents.scss";
+@import "tutorial.scss";
