@@ -7,16 +7,15 @@ draft: false
 ## Before you get started
 
 Before diving into the FlatBuffers usage in C++, it should be noted that the
-[Tutorial](@ref flatbuffers_guide_tutorial) page has a complete guide to general
+[Tutorial]({{< ref "/tutorial">}}) page has a complete guide to general
 FlatBuffers usage in all of the supported languages (including C++). This page
 is designed to cover the nuances of FlatBuffers usage, specific to C++.
 
 ### Prerequisites
 
 This page assumes you have written a FlatBuffers schema and compiled it with the
-Schema Compiler. If you have not, please see [Using the schema compiler](@ref
-flatbuffers_guide_using_schema_compiler) and [Writing a schema](@ref
-flatbuffers_guide_writing_schema).
+Schema Compiler. If you have not, please see [Using the schema compiler](
+{{< ref "/compiler-usage">}}) and [Writing a schema]({{< ref "/schema" >}}).
 
 Assuming you wrote a schema, say `mygame.fbs` (though the extension doesn't
 matter), you've generated a C++ header called `mygame_generated.h` using the
@@ -45,8 +44,8 @@ run: `./flattests`.
 
 ## Using the FlatBuffers C++ library
 
-_Note: See [Tutorial](@ref flatbuffers_guide_tutorial) for a more in-depth
-example of how to use FlatBuffers in C++._
+_Note: See [Tutorial]({{< ref "/tutorial" >}}) for a more in-depth example of
+how to use FlatBuffers in C++._
 
 FlatBuffers supports both reading and writing FlatBuffers in C++.
 
