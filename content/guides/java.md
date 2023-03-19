@@ -20,20 +20,20 @@ schema](@ref flatbuffers_guide_writing_schema).
 
 The code for the FlatBuffers Java library can be found at
 `flatbuffers/java/com/google/flatbuffers`. You can browse the library on the
-[FlatBuffers GitHub page](https://github.com/google/flatbuffers/tree/master/
-java/com/google/flatbuffers).
+[FlatBuffers GitHub page](https://github.com/google/flatbuffers/tree/master/java/com/google/flatbuffers).
 
 ## Testing the FlatBuffers Java libraries
 
 The code to test the libraries can be found at `flatbuffers/tests`.
 
-The test code for Java is located in [JavaTest.java](https://github.com/google
-/flatbuffers/blob/master/tests/JavaTest.java).
+The test code for Java is located in
+[JavaTest.java](https://github.com/google/flatbuffers/blob/master/tests/JavaTest.java).
 
-To run the tests, use either [JavaTest.sh](https://github.com/google/
-flatbuffers/blob/master/tests/JavaTest.sh) or [JavaTest.bat](https://github.com/
-google/flatbuffers/blob/master/tests/JavaTest.bat), depending on your operating
-system.
+To run the tests, use either
+[JavaTest.sh](https://github.com/google/flatbuffers/blob/master/tests/JavaTest.sh)
+or
+[JavaTest.bat](https://github.com/google/flatbuffers/blob/master/tests/JavaTest.bat),
+depending on your operating system.
 
 _Note: These scripts require that [Java](https://www.oracle.com/java/index.html)
 is installed._

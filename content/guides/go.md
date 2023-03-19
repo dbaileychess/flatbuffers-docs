@@ -25,11 +25,12 @@ can browse the library code on the
 ## Testing the FlatBuffers Go library
 
 The code to test the Go library can be found at `flatbuffers/tests`. The test
-code itself is located in [go_test.go](https://github.com/google/
-flatbuffers/blob/master/tests/go_test.go).
+code itself is located in
+[go_test.go](https://github.com/google/flatbuffers/blob/master/tests/go_test.go).
 
-To run the tests, use the [GoTest.sh](https://github.com/google/flatbuffers/
-blob/master/tests/GoTest.sh) shell script.
+To run the tests, use the
+[GoTest.sh](https://github.com/google/flatbuffers/blob/master/tests/GoTest.sh)
+shell script.
 
 _Note: The shell script requires [Go](https://golang.org/doc/install) to be
 installed._

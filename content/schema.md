@@ -474,7 +474,7 @@ flatbuffers_grammar), it accepts the following numerical literals:
 
 ## Guidelines
 
-## Efficiency
+### Efficiency
 
 FlatBuffers is all about efficiency, but to realize that efficiency you require
 an efficient schema. There are usually multiple choices on how to represent data
@@ -506,7 +506,7 @@ Remember that you can share data (refer to the same string/table within a
 buffer), so factoring out repeating data into its own data structure may be
 worth it.
 
-## Style guide
+### Style guide
 
 Identifiers in a schema are meant to translate to many different programming
 languages, so using the style of your "main" language is generally a bad idea.

@@ -19,9 +19,8 @@ schema](@ref flatbuffers_guide_writing_schema).
 ## FlatBuffers C# code location
 
 The code for the FlatBuffers C# library can be found at
-`flatbuffers/net/FlatBuffers`. You can browse the library on the [FlatBuffers
-GitHub page](https://github.com/google/flatbuffers/tree/master/net/
-FlatBuffers).
+`flatbuffers/net/FlatBuffers`. You can browse the library on the
+[FlatBuffers GitHub page](https://github.com/google/flatbuffers/tree/master/net/FlatBuffers).
 
 ## Building the FlatBuffers C# library
 
@@ -51,9 +50,9 @@ dotnet build -f netstandard2.1 -p:ENABLE_SPAN_T=true -p:UNSAFE_BYTEBUFFER=true "
 
 The code to test the libraries can be found at `flatbuffers/tests`.
 
-The test code for C# is located in the [FlatBuffers.Test](https://github.com/
-google/flatbuffers/tree/master/tests/FlatBuffers.Test) subfolder. To run the
-tests, open `FlatBuffers.Test.csproj` in
+The test code for C# is located in the
+[FlatBuffers.Test](https://github.com/google/flatbuffers/tree/master/tests/FlatBuffers.Test)
+subfolder. To run the tests, open `FlatBuffers.Test.csproj` in
 [Visual Studio](https://www.visualstudio.com), and compile/run the project.
 
 Optionally, you can run this using [Mono](http://www.mono-project.com/) instead.
@@ -219,4 +218,3 @@ performance/features of the C# `ByteBuffer` implementation.
 Using `UNSAFE_BYTEBUFFER` and `BYTEBUFFER_NO_BOUNDS_CHECK` together can yield a
 performance gain of ~15% for some operations, however doing so is potentially
 dangerous. Do so at your own risk!
-

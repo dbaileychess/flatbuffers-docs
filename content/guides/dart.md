@@ -25,11 +25,12 @@ You can browse the library code on the
 ## Testing the FlatBuffers Dart library
 
 The code to test the Dart library can be found at `flatbuffers/tests`. The test
-code itself is located in [dart_test.dart](https://github.com/google/
-flatbuffers/blob/master/tests/dart_test.dart).
+code itself is located in
+[dart_test.dart](https://github.com/google/flatbuffers/blob/master/tests/dart_test.dart).
 
-To run the tests, use the [DartTest.sh](https://github.com/google/flatbuffers/
-blob/master/tests/DartTest.sh) shell script.
+To run the tests, use the
+[DartTest.sh](https://github.com/google/flatbuffers/blob/master/tests/DartTest.sh)
+shell script.
 
 _Note: The shell script requires the
 [Dart SDK](https://www.dartlang.org/tools/sdk) to be installed._

@@ -22,9 +22,27 @@ ul {
   padding-left: 1.5rem;
 }
 
+table {
+  border: 1px solid $gray10;
+  border-collapse: collapse;
+}
+
+td,
+tr, th {
+  padding: 0.5rem ;
+  border: 1px solid $gray10;
+}
+
+a {
+	text-decoration: none;
+	font-weight: 500;
+	color: $primaryColor;
+}
+
 .main-inner {
   padding: 0 1rem;
 }
+
 
 .content {
   padding-bottom: 3rem;
