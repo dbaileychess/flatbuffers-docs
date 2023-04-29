@@ -8,9 +8,9 @@ aliases:
   - flatbuffers_guide_tutorial.html
 ---
 
-This tutorial provides a basic example of how to work with [FlatBuffers](@ref
-flatbuffers_overview). We will step through a simple example application, which
-shows you how to:
+This tutorial provides a basic example of how to work with
+[FlatBuffers]({{< ref "/" >}}). We will step through a simple example
+application, which shows you how to:
 
 - Write a FlatBuffer `schema` file.
 - Use the `flatc` FlatBuffer compiler.
@@ -4098,4 +4098,3 @@ _Note: The resulting JSON file is not necessarily identical with the original
 JSON. If the binary representation contains floating point numbers, floats and
 doubles are rounded to 6 and 12 digits, respectively, in order to represent them
 as decimals in the JSON document._
-
