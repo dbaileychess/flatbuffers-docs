@@ -1,9 +1,10 @@
 ---
 title: "C"
-draft: true
----
+draft: false
 
-# Use in C {#flatbuffers_guide_use_c}
+aliases:
+  - flatbuffers_guide_use_c.html
+---
 
 The C language binding exists in a separate project named
 [FlatCC](https://github.com/dvidelabs/flatcc).
@@ -16,8 +17,7 @@ Great care has been taken to ensure compatibility with the main `flatc` project.
 
 ## General Documention
 
-- [Tutorial]({{< ref "/tutorial">}}) - select C as language when
-  scrolling down
+- [Tutorial]({{< ref "/tutorial">}}) - select C as language when scrolling down
 - [FlatCC Guide](https://github.com/dvidelabs/flatcc#flatcc-flatbuffers-in-c-for-c)
 - [The C Builder Interface](https://github.com/dvidelabs/flatcc/blob/master/doc/builder.md#the-builder-interface)
 - [The Monster Sample in C](https://github.com/dvidelabs/flatcc/blob/master/samples/monster/monster.c)
@@ -53,8 +53,8 @@ best to keep `flatcc_builder` calls isolated at the top driver level, so we get:
     return s(Monster_create(B, ...));
   }
 
-void create_monster_buffer() { uint8_t *buf; size_t size; flatcc_builder_t
-builder, *B;
+void create_monster_buffer() {
+    uint8_t *buf; size_t size; flatcc_builder_t builder, *B;
 
       // Initialize the builder object.
       B = &builder;
@@ -67,7 +67,6 @@ builder, *B;
 
       free(buf);
       flatcc_builder_clear(B);
-
 }
 
 ```

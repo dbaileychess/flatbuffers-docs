@@ -2,20 +2,23 @@
 title: "JavaScript"
 date: 2023-03-17T17:55:15-07:00
 draft: false
+
+aliases:
+  - flatbuffers_guide_use_javascript.html
 ---
 
 ## Before you get started
 
 Before diving into the FlatBuffers usage in JavaScript, it should be noted that
-the [Tutorial](@ref flatbuffers_guide_tutorial) page has a complete guide to
-general FlatBuffers usage in all of the supported languages (including
-JavaScript). This page is specifically designed to cover the nuances of
-FlatBuffers usage in JavaScript.
+the [Tutorial]({{< ref "/tutorial" >}}) page has a complete guide to general
+FlatBuffers usage in all of the supported languages (including JavaScript). This
+page is specifically designed to cover the nuances of FlatBuffers usage in
+JavaScript.
 
-You should also have read the [Building](@ref flatbuffers_guide_building)
-documentation to build `flatc` and should be familiar with [Using the schema
-compiler](@ref flatbuffers_guide_using_schema_compiler) and [Writing a
-schema](@ref flatbuffers_guide_writing_schema).
+You should also have read the [Building]({{< ref "/building" >}}) documentation
+to build `flatc` and should be familiar with [Using the schema
+compiler]({{< ref "/compiler-usage" >}}) and [Writing a
+schema]({{< ref "/schema" >}}).
 
 ## FlatBuffers JavaScript library code location
 
@@ -28,8 +31,8 @@ https://www.npmjs.com/package/flatbuffers. To use it from sources:
 
 ## Using the FlatBuffers JavaScript library
 
-_Note: See [Tutorial](@ref flatbuffers_guide_tutorial) for a more in-depth
-example of how to use FlatBuffers._
+_Note: See [Tutorial]({{< ref "/tutorial" >}}) for a more in-depth example of
+how to use FlatBuffers._
 
 Due to the complexity related with large amounts of JS flavors and module types,
 native JS support has been replaced in 2.0 by transpilation from TypeScript.

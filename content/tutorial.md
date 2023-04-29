@@ -3,6 +3,9 @@ title: "Tutorial"
 date: 2023-02-17T15:36:42-08:00
 draft: false
 weight: 2
+
+aliases:
+- flatbuffers_guide_tutorial.html
 ---
 
 This tutorial provides a basic example of how to work with FlatBuffers. We will

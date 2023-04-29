@@ -2,6 +2,9 @@
 title: "Go"
 date: 2023-02-01T01:45:06-08:00
 draft: false
+
+aliases:
+  - flatbuffers_guide_use_dart.html
 ---
 
 ## Before you get started

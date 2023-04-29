@@ -2,6 +2,9 @@
 title: "Dart"
 date: 2023-03-17T17:51:05-07:00
 draft: false
+
+aliases:
+  - flatbuffers_guide_use_dart.html
 ---
 
 ## Before you get started

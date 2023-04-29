@@ -2,6 +2,9 @@
 title: "C#"
 date: 2023-02-01T22:04:39-08:00
 draft: false
+
+aliases:
+  - flatbuffers_guide_use_c-sharp.html
 ---
 
 ## Before you get started
