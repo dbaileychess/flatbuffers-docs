@@ -2,7 +2,7 @@
 title: "Building"
 draft: false
 
-weight: 11
+weight: 2
 
 aliases:
   - flatbuffers_guide_building.html

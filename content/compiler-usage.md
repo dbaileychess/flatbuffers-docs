@@ -2,9 +2,13 @@
 title: "Using the Schema Compiler"
 draft: false
 weight: 14
+
+aliases:
+  - flatbuffers_guide_using_schema_compiler.html
 ---
 
 ## Usage
+
 ```txt
 flatc [ GENERATOR OPTIONS ] [ -o PATH ] [ -I PATH ] FILES...
       [ -- FILES...]
