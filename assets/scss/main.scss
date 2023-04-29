@@ -6,6 +6,7 @@ html {
   line-height: 1.6;
   font-size: 16px;
   scroll-padding-top: 4rem;
+  overflow-y: scroll;
 }
 
 body {
@@ -48,6 +49,7 @@ a {
   padding-bottom: 3rem;
   margin-top: 0;
   width: 100%;
+  min-height: calc(100vh - 6.5rem);
 }
 
 .heading-anchor {
