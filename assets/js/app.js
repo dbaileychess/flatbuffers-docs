@@ -4,25 +4,25 @@ function created() {
   let url = new URL(window.location.href);
   const lang = url.searchParams.get("lang");
   if (lang) {
-    this.tutorialLanguage = lang;
+    this.selectedLang = lang;
   }
 }
 
-function setTutorialLanguage(lang) {
+function setLanguage(lang) {
   let url = new URL(window.location.href);
   url.searchParams.set("lang", lang);
   window.history.pushState({}, "", url);
-  this.tutorialLanguage = lang;
+  this.selectedLang = lang;
 }
 
 createApp({
   data() {
     return {
-      tutorialLanguage: "C++",
+      selectedLang: "C++",
     };
   },
   methods: {
-    setTutorialLanguage: setTutorialLanguage,
+    setLanguage: setLanguage,
   },
   created: created,
   delimiters: ["${", "}$"],

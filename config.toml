@@ -15,3 +15,6 @@ pluralizelisttitles = "false"
     lineNoStart = 1
     style = 'xcode-dark'
     tabWidth = 2
+
+[markup.goldmark.renderer]
+unsafe= true
