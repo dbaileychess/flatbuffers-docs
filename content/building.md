@@ -113,7 +113,7 @@ headers in `include/flatbuffers`. You must also compile/link
 convert binary to text).
 
 To see how to include FlatBuffers in any of our supported languages, please view
-the [Tutorial](@ref flatbuffers_guide_tutorial) and select your appropriate
+the [Tutorial]({{< ref "/tutorial" >}}) and select your appropriate
 language using the radio buttons.
 
 ### Using in CMake-based projects

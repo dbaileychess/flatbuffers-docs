@@ -16,8 +16,8 @@ is designed to cover the nuances of FlatBuffers usage, specific to Swift.
 
 You should also have read the [Building]({{< ref "/building" >}})
 documentation to build `flatc` and should be familiar with [Using the schema
-compiler](@ref flatbuffers_guide_using_schema_compiler) and [Writing a
-schema](@ref flatbuffers_guide_writing_schema).
+compiler]({{< ref "/compiler-usage" >}}) and [Writing a
+schema]({{< ref "/schema" >}}).
 
 ## FlatBuffers Swift library code location
 

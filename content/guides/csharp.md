@@ -10,14 +10,14 @@ aliases:
 ## Before you get started
 
 Before diving into the FlatBuffers usage in C#, it should be noted that the
-[Tutorial](@ref flatbuffers_guide_tutorial) page has a complete guide to general
+[Tutorial]({{< ref "/tutorial" >}}) page has a complete guide to general
 FlatBuffers usage in all of the supported languages (including C#). This page is
 designed to cover the nuances of FlatBuffers usage, specific to C#.
 
-You should also have read the [Building](@ref flatbuffers_guide_building)
+You should also have read the [Building]({{< ref "/building" >}})
 documentation to build `flatc` and should be familiar with [Using the schema
-compiler](@ref flatbuffers_guide_using_schema_compiler) and [Writing a
-schema](@ref flatbuffers_guide_writing_schema).
+compiler]({{< ref "/compiler-usage" >}}) and [Writing a
+schema]({{< ref "/schema" >}}).
 
 ## FlatBuffers C# code location
 
@@ -69,7 +69,7 @@ mono Assert.exe
 
 ## Using the FlatBuffers C# library
 
-_Note: See [Tutorial](@ref flatbuffers_guide_tutorial) for a more in-depth
+_Note: See [Tutorial]({{< ref "/tutorial" >}}) for a more in-depth
 example of how to use FlatBuffers in C#._
 
 FlatBuffers supports reading and writing binary FlatBuffers in C#.

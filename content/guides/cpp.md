@@ -39,7 +39,7 @@ code itself is located in
 [test.cpp](https://github.com/google/flatbuffers/blob/master/tests/test.cpp).
 
 This test file is built alongside `flatc`. To review how to build the project,
-please read the [Building](@ref flatbuffers_guide_building) documentation.
+please read the [Building]({{< ref "/building" >}}) documentation.
 
 To run the tests, execute `flattests` from the root `flatbuffers/` directory.
 For example, on [Linux](https://en.wikipedia.org/wiki/Linux), you would simply
@@ -557,7 +557,7 @@ depth. Number of nested declarations in a schema or number of nested
 json-objects is limited. By default, this depth limit set to `64`. It is
 possible to override this limit with `FLATBUFFERS_MAX_PARSING_DEPTH` definition.
 This definition can be helpful for testing purposes or embedded applications.
-For details see [build](@ref flatbuffers_guide_building) of CMake-based
+For details see [build]({{< ref "/building" >}}) of CMake-based
 projects.
 
 ## Dependence from C-locale {#flatbuffers_locale_cpp}
