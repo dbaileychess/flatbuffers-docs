@@ -2,6 +2,9 @@
 title: "Schema Grammar"
 draft: false
 weight: 11
+
+aliases:
+  - flatbuffers_grammar.html
 ---
 
 ## EBNF

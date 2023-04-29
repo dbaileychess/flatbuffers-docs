@@ -2,6 +2,9 @@
 title: "Internals"
 draft: false
 weight: 12
+
+aliases:
+  - flatbuffers_internals.html
 ---
 
 ## FlatBuffers

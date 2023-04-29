@@ -1,7 +1,10 @@
 ---
 title: "White Paper"
-draft: true
+draft: false
 weight: 10
+
+aliases:
+  - flatbuffers_white_paper.html
 ---
 
 This document tries to shed some light on to the "why" of FlatBuffers, a new
