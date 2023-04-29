@@ -5,9 +5,10 @@
   position: sticky;
   top: 4.5rem;
   flex-direction: column;
-  height: min-content;
   max-width: 15rem;
   width: 100%;
+  height: calc(100vh - 5rem);
+  overflow-y: auto;
 }
 
 .toc-heading {
