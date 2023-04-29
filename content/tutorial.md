@@ -130,7 +130,7 @@ table Weapon {
 ### More Information About Schemas
 
 You can find a complete guide to writing `schema` files in the
-[Writing a schema](@ref flatbuffers_guide_writing_schema) page. You can also view 
+[Writing a schema]({{< ref "/schema" >}}) page. You can also view 
 the formal [Grammar of the schema language](@ref flatbuffers_grammar).
 
 ## Compiling the Monsters' Schema
@@ -138,7 +138,7 @@ the formal [Grammar of the schema language](@ref flatbuffers_grammar).
 After you have written the FlatBuffers schema, the next step is to compile it.
 
 If you have not already done so, please follow
-[these instructions](@ref flatbuffers_guide_building) to build `flatc`, the
+[these instructions]({{< ref "/building" >}}) to build `flatc`, the
 FlatBuffer compiler.
 
 <div class="lang-observer" :class="{show: selectedLang == 'C'}">
@@ -281,7 +281,7 @@ cd flatbuffers/samples
 
 
 For a more complete guide to using the `flatc` compiler, please read the
-[Using the schema compiler](@ref flatbuffers_guide_using_schema_compiler)
+[Using the schema compiler]({{< ref "/compiler-usage" >}})
 page.
 
 ## Reading and Writing Monster FlatBuffers
