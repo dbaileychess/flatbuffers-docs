@@ -1,9 +1,9 @@
 aside {
   position: sticky;
   top: 4.5rem;
-  display: none;
   height: calc(100vh - 5rem);
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .sidebar-content {
@@ -34,10 +34,4 @@ aside {
   color: $primaryColor;
   border-left: 3px solid $primaryColor;
   background-color: rgba($color: $primaryColor, $alpha: 0.05);
-}
-
-@media (min-width: $mediaMd) {
-  aside {
-    display: block;
-  }
 }
