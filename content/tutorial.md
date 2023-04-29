@@ -8,22 +8,30 @@ aliases:
 - flatbuffers_guide_tutorial.html
 ---
 
-This tutorial provides a basic example of how to work with FlatBuffers. We will
-step through a simple example application, which shows you how to:
+This tutorial provides a basic example of how to work with
+[FlatBuffers](@ref flatbuffers_overview). We will step through a simple example
+application, which shows you how to:
 
-- Write a FlatBuffer schema file.
-- Use the flatc FlatBuffer compiler.
-- Parse JSON files that conform to a schema into FlatBuffer binary files.
-- Use the generated files in many of the supported languages (such as C++, Java,
-  and more.)
+- Write a FlatBuffer `schema` file.
+- Use the `flatc` FlatBuffer compiler.
+- Parse [JSON](http://json.org) files that conform to a schema into 
+  FlatBuffer binary files.
+- Use the generated files in many of the supported languages (such as C++,
+  Java, and more.)
 
 During this example, imagine that you are creating a game where the main
-character, the hero of the story, needs to slay some orcs. We will walk through
-each step necessary to create this monster type using FlatBuffers.
+character, the hero of the story, needs to slay some `orc`s. We will walk
+through each step necessary to create this monster type using FlatBuffers.
 
 **Please select a language:**
 
 {{< tutorial-lang-select >}}
+
+## Where to Find the Example Code
+
+Samples demonstating the concepts in this example are located in the source code
+package, under the `samples` directory. You can browse the samples on GitHub
+[here](https://github.com/google/flatbuffers/tree/master/samples).
 
 ## Writing the Monsters' FlatBuffer Schema
 
@@ -63,51 +71,54 @@ table Weapon {
 root_type Monster;
 ```
 
-As you can see, the syntax for the schema Interface Definition Language (IDL) is
-similar to those of the C family of languages, and other IDL languages. Let's
-examine each part of this schema to determine what it does.
+As you can see, the syntax for the `schema` [Interface Definition Language (IDL)](https://en.wikipedia.org/wiki/Interface_description_language)
+is similar to those of the C family of languages, and other IDL languages. Let's
+examine each part of this `schema` to determine what it does.
 
-The schema starts with a namespace declaration. This determines the
+The `schema` starts with a `namespace` declaration. This determines the
 corresponding package/namespace for the generated code. In our example, we have
-the Sample namespace inside of the MyGame namespace.
+the `Sample` namespace inside of the `MyGame` namespace.
 
-Next, we have an enum definition. In this example, we have an enum of type byte,
-named Color. We have three values in this enum: Red, Green, and Blue. We specify
-Red = 0 and Blue = 2, but we do not specify an explicit value for Green. Since
-the behavior of an enum is to increment if unspecified, Green will receive the
-implicit value of 1.
+Next, we have an `enum` definition. In this example, we have an `enum` of type
+`byte`, named `Color`. We have three values in this `enum`: `Red`, `Green`, and
+`Blue`. We specify `Red = 0` and `Blue = 2`, but we do not specify an explicit
+value for `Green`. Since the behavior of an `enum` is to increment if
+unspecified, `Green` will receive the implicit value of `1`.
 
-Following the enum is a union. The union in this example is not very useful, as
-it only contains the one table (named Weapon). If we had created multiple tables
-that we would want the union to be able to reference, we could add more elements
-to the union Equipment.
+Following the `enum` is a `union`. The `union` in this example is not very
+useful, as it only contains the one `table` (named `Weapon`). If we had created
+multiple tables that we would want the `union` to be able to reference, we
+could add more elements to the `union Equipment`.
 
-After the union comes a struct Vec3, which represents a floating point vector
-with 3 dimensions. We use a struct here, over a table, because structs are ideal
-for data structures that will not change, since they use less memory and have
-faster lookup.
+After the `union` comes a `struct Vec3`, which represents a floating point
+vector with `3` dimensions. We use a `struct` here, over a `table`, because
+`struct`s are ideal for data structures that will not change, since they use
+less memory and have faster lookup.
 
-The Monster table is the main object in our FlatBuffer. This will be used as the
-template to store our orc monster. We specify some default values for fields,
-such as mana:short = 150. If unspecified, scalar fields (like int, uint, or
-float) will be given a default of 0 while strings and tables will be given a
-default of null. Another thing to note is the line friendly:bool = false
-(deprecated);. Since you cannot delete fields from a table (to support backwards
-compatability), you can set fields as deprecated, which will prevent the
-generation of accessors for this field in the generated code. Be careful when
-using deprecated, however, as it may break legacy code that used this accessor.
+The `Monster` table is the main object in our FlatBuffer. This will be used as
+the template to store our `orc` monster. We specify some default values for
+fields, such as `mana:short = 150`. If unspecified, scalar fields (like `int`,
+`uint`, or `float`) will be given a default of `0` while strings and tables will
+be given a default of `null`. Another thing to note is the line `friendly:bool =
+false (deprecated);`. Since you cannot delete fields from a `table` (to support
+backwards compatibility), you can set fields as `deprecated`, which will prevent
+the generation of accessors for this field in the generated code. Be careful
+when using `deprecated`, however, as it may break legacy code that used this
+accessor.
 
-The Weapon table is a sub-table used within our FlatBuffer. It is used twice:
-once within the Monster table and once within the Equipment union. For our
-Monster, it is used to populate a vector of tables via the weapons field within
-our Monster. It is also the only table referenced by the Equipment union.
+The `Weapon` table is a sub-table used within our FlatBuffer. It is
+used twice: once within the `Monster` table and once within the `Equipment`
+union. For our `Monster`, it is used to populate a `vector of tables` via the
+`weapons` field within our `Monster`. It is also the only table referenced by
+the `Equipment` union.
 
-The last part of the schema is the root_type. The root type declares what will
-be the root table for the serialized data. In our case, the root type is our
-Monster table.
+The last part of the `schema` is the `root_type`. The root type declares what
+will be the root table for the serialized data. In our case, the root type is
+our `Monster` table.
 
-The scalar types can also use alias type names such as int16 instead of short
-and float32 instead of float. Thus we could also write the Weapon table as:
+The scalar types can also use alias type names such as `int16` instead
+of `short` and `float32` instead of `float`. Thus we could also write
+the `Weapon` table as:
 
 ```
 table Weapon {
@@ -118,19 +129,29 @@ table Weapon {
 
 ### More Information About Schemas
 
-You can find a complete guide to writing schema files in the Writing a schema
-section of the Programmer's Guide. You can also view the formal Grammar of the
-schema language.
+You can find a complete guide to writing `schema` files in the
+[Writing a schema](@ref flatbuffers_guide_writing_schema) page. You can also view 
+the formal [Grammar of the schema language](@ref flatbuffers_grammar).
 
 ## Compiling the Monsters' Schema
 
 After you have written the FlatBuffers schema, the next step is to compile it.
-If you have not already done so, please follow these instructions to build
-flatc, the FlatBuffer compiler.
 
-Once flatc is built successfully, compile the schema for your language:
+If you have not already done so, please follow
+[these instructions](@ref flatbuffers_guide_building) to build `flatc`, the
+FlatBuffer compiler.
 
+{{< tutorial-lang-observer lang="C">}}
+*Note: If you're working in C, you need to use the separate project
+[FlatCC](https://github.com/dvidelabs/flatcc)
+which contains a schema compiler and runtime library in C for C.*
 
+See [flatcc build instructions](https://github.com/dvidelabs/flatcc#building).
+
+Please be aware of the difference between `flatc` and `flatcc` tools.
+{{</ tutorial-lang-observer>}}
+
+Once `flatc` is built successfully, compile the schema for your language:
 
 {{< tutorial-lang-observer lang="C++">}}
 ```bash
@@ -243,18 +264,19 @@ cd flatbuffers/samples
 {{</ tutorial-lang-observer>}}
 
 
-For a more complete guide to using the flatc compiler, please read the Using
-the schema compiler section of the Programmer's Guide.
+For a more complete guide to using the `flatc` compiler, please read the
+[Using the schema compiler](@ref flatbuffers_guide_using_schema_compiler)
+page.
 
 ## Reading and Writing Monster FlatBuffers
 
-Now that we have compiled the schema for our programming language, we can start
-creating some monsters and serializing/deserializing them from FlatBuffers.
+Now that we have compiled the schema for our programming language, we can
+start creating some monsters and serializing/deserializing them from
+FlatBuffers.
 
 ### Creating and Writing Orc FlatBuffers
 
 The first step is to import/include the library, generated files, etc.
-
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -430,12 +452,10 @@ typealias Vec3 = MyGame1_Sample_Vec3
 ```
 {{</ tutorial-lang-observer>}}
 
-
-Now we are ready to start building some buffers. In order to start, we need to
-create an instance of the FlatBufferBuilder, which will contain the buffer as
-it grows. You can pass an initial size of the buffer (here 1024 bytes), which
-will grow automatically if needed:
-
+Now we are ready to start building some buffers. In order to start, we need
+to create an instance of the `FlatBufferBuilder`, which will contain the buffer
+as it grows. You can pass an initial size of the buffer (here 1024 bytes),
+which will grow automatically if needed:
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -557,10 +577,8 @@ let builder = FlatBufferBuilder(initialSize: 1024)
 ```
 {{</ tutorial-lang-observer>}}
 
-
-After creating the builder, we can start serializing our data. Before we make
-our orc Monster, let's create some Weapons: a Sword and an Axe.
-
+After creating the `builder`, we can start serializing our data. Before we make
+our `orc` Monster, let's create some `Weapon`s: a `Sword` and an `Axe`.
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -840,14 +858,15 @@ let axe = Weapon.endWeapon(&builder, start: weapon2Start)
 {{</ tutorial-lang-observer>}}
 
 
-Now let's create our monster, the orc. For this orc, lets make him red with
-rage, positioned at (1.0, 2.0, 3.0), and give him a large pool of hit points
-with 300. We can give him a vector of weapons to choose from (our Sword and Axe
-from earlier). In this case, we will equip him with the Axe, since it is the 
-most powerful of the two. Lastly, let's fill his inventory with some potential 
-treasures that can be taken once he is defeated.
+Now let's create our monster, the `orc`. For this `orc`, lets make him
+`red` with rage, positioned at `(1.0, 2.0, 3.0)`, and give him
+a large pool of hit points with `300`. We can give him a vector of weapons
+to choose from (our `Sword` and `Axe` from earlier). In this case, we will
+equip him with the `Axe`, since it is the most powerful of the two. Lastly,
+let's fill his inventory with some potential treasures that can be taken once he
+is defeated.
 
-Before we serialize a monster, we need to first serialize any objects that are 
+Before we serialize a monster, we need to first serialize any objects that are
 contained therein, i.e. we serialize the data tree using depth-first, pre-order
 traversal. This is generally easy to do on any tree structures.
 
@@ -1054,22 +1073,23 @@ let inventoryOffset = builder.createVector(inventory)
 ```
 {{</ tutorial-lang-observer>}}
 
-We serialized two built-in data types (string and vector) and captured their 
-return values. These values are offsets into the serialized data, indicating 
-where they are stored, such that we can refer to them below when adding fields
-to our monster.
+We serialized two built-in data types (`string` and `vector`) and captured
+their return values. These values are offsets into the serialized data,
+indicating where they are stored, such that we can refer to them below when
+adding fields to our monster.
 
-Note: To create a vector of nested objects (e.g. tables, strings, or other
-vectors), collect their offsets into a temporary data structure, and then create 
-an additional vector containing their offsets.
+*Note: To create a `vector` of nested objects (e.g. `table`s, `string`s, or
+other `vector`s), collect their offsets into a temporary data structure, and
+then create an additional `vector` containing their offsets.*
 
 If instead of creating a vector from an existing array you serialize elements
 individually one by one, take care to note that this happens in reverse order,
 as buffers are built back to front.
 
-For example, take a look at the two Weapons that we created earlier (Sword and
-Axe). These are both FlatBuffer tables, whose offsets we now store in memory.
-Therefore we can create a FlatBuffer vector to contain these offsets.
+For example, take a look at the two `Weapon`s that we created earlier (`Sword`
+and `Axe`). These are both FlatBuffer `table`s, whose offsets we now store in
+memory. Therefore we can create a FlatBuffer `vector` to contain these
+offsets.
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -1218,14 +1238,15 @@ let weaponsOffset = builder.createVector(ofOffsets: [sword, axe])
 ```
 {{</ tutorial-lang-observer>}}
 
-Note there are additional convenience overloads of CreateVector, allowing you to
-work with data that's not in a `std::vector` or allowing you to generate elements
-by calling a lambda. For the common case of `std::vector<std::string>` there's
-also CreateVectorOfStrings.
+Note there are additional convenience overloads of `CreateVector`, allowing you
+to work with data that's not in a `std::vector` or allowing you to generate
+elements by calling a lambda. For the common case of `std::vector<std::string>`
+there's also `CreateVectorOfStrings`.
 
 Note that vectors of structs are serialized differently from tables, since
-structs are stored in-line in the vector. For example, to create a vector for
-the path field above:
+structs are stored in-line in the vector. For example, to create a vector
+for the `path` field above:
+
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -1385,7 +1406,8 @@ let points = fbb.endVector(len: size)
 ```
 {{</ tutorial-lang-observer>}}
 
-We have now serialized the non-scalar components of the orc, so we can serialize the monster itself:
+We have now serialized the non-scalar components of the orc, so we
+can serialize the monster itself:
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -1686,24 +1708,47 @@ var orc = Monster.endMonster(&builder, start: start)
 ```
 {{</ tutorial-lang-observer>}}
 
-Note how we create Vec3 struct in-line in the table. Unlike tables, structs are
-simple combinations of scalars that are always stored inline, just like scalars
-themselves.
+Note how we create `Vec3` struct in-line in the table. Unlike tables, structs
+are simple combinations of scalars that are always stored inline, just like
+scalars themselves.
 
-**Important:** Unlike structs, you should not nest tables or other objects, which is
-why we created all the strings/vectors/tables that this monster refers to before
-start. If you try to create any of them between start and end, you will get an
-assert/exception/panic depending on your language.
+**Important**: Unlike structs, you should not nest tables or other objects,
+which is why we created all the strings/vectors/tables that this monster refers
+to before `start`. If you try to create any of them between `start` and `end`,
+you will get an assert/exception/panic depending on your language.
 
-Note: Since we are passing 150 as the mana field, which happens to be the
+*Note: Since we are passing `150` as the `mana` field, which happens to be the
 default value, the field will not actually be written to the buffer, since the
 default value will be returned on query anyway. This is a nice space savings,
 especially if default values are common in your data. It also means that you do
 not need to be worried about adding a lot of fields that are only used in a small
-number of instances, as it will not bloat the buffer if unused.
+number of instances, as it will not bloat the buffer if unused.*
+
+
+{{< tutorial-lang-observer lang="C++">}}
+If you do not wish to set every field in a `table`, it may be more convenient to
+manually set each field of your monster, instead of calling
+`CreateMonster()`. The following snippet is functionally equivalent to
+the above code, but provides a bit more flexibility.
+
+```cpp
+// You can use this code instead of `CreateMonster()`, to create our orc
+// manually.
+MonsterBuilder monster_builder(builder);
+monster_builder.add_pos(&position);
+monster_builder.add_hp(hp);
+monster_builder.add_name(name);
+monster_builder.add_inventory(inventory);
+monster_builder.add_color(Color_Red);
+monster_builder.add_weapons(weapons);
+monster_builder.add_equipped_type(Equipment_Weapon);
+monster_builder.add_equipped(axe.Union());
+auto orc = monster_builder.Finish();
+```
+{{</ tutorial-lang-observer>}}
+
 
 {{< tutorial-lang-observer lang="C">}}
-
 If you do not wish to set every field in a `table`, it may be more convenient to
 manually set each field of your monster, instead of calling
 `create_monster_as_root()`. The following snippet is functionally equivalent to
@@ -1729,15 +1774,14 @@ ns(Monster_end_as_root(B));
 ```
 {{</ tutorial-lang-observer>}}
 
+Before finishing the serialization, let's take a quick look at FlatBuffer
+`union Equipped`. There are two parts to each FlatBuffer `union`. The first is
+a hidden field `_type` that is generated to hold the type of `table` referred
+to by the `union`. This allows you to know which type to cast to at runtime.
+Second is the `union`'s data.
 
-Before finishing the serialization, let's take a quick look at FlatBuffer union
-Equipped. There are two parts to each FlatBuffer union. The first is a hidden
-field _type that is generated to hold the type of table referred to by the
-union. This allows you to know which type to cast to at runtime. Second is the
-union's data.
-
-In our example, the last two things we added to our Monster were the Equipped
-Type and the Equipped union itself.
+In our example, the last two things we added to our `Monster` were the
+`Equipped Type` and the `Equipped` union itself.
 
 Here is a repetition of these lines, to help highlight them more clearly:
 
@@ -1854,9 +1898,9 @@ Monster.add(equipped: axe, builder) // Union data
 ```
 {{</ tutorial-lang-observer>}}
 
-After you have created your buffer, you will have the offset to the root of
-the data in the orc variable, so you can finish the buffer by calling the
-appropriate finish method.
+After you have created your buffer, you will have the offset to the root of the
+data in the `orc` variable, so you can finish the buffer by calling the
+appropriate `finish` method.
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -2114,14 +2158,29 @@ let bufData = ByteBuffer(data: builder.data)
 ```
 {{</ tutorial-lang-observer>}}
 
-Now you can write the bytes to a file or send them over the network. Make sure
-your file mode (or transfer protocol) is set to BINARY, not text. If you
-transfer a FlatBuffer in text mode, the buffer will be corrupted, which will
-lead to hard to find problems when you read the buffer.
+Now you can write the bytes to a file or send them over the network.
+**Make sure your file mode (or transfer protocol) is set to BINARY, not text.**
+If you transfer a FlatBuffer in text mode, the buffer will be corrupted,
+which will lead to hard to find problems when you read the buffer.
+
+
+{{< tutorial-lang-observer lang="JavaScript">}}
+For example, in Node you can simply do:
+```js`
+writeFileSync('monster.bin', buf, 'binary');
+```
+{{</ tutorial-lang-observer>}}
+
+{{< tutorial-lang-observer lang="TypeScript">}}
+For example, in Node you can simply do:
+```ts
+  writeFileSync('monster.bin', buf, 'binary');
+```
+{{</ tutorial-lang-observer>}}
 
 ### Reading Orc FlatBuffers
 
-Now that we have successfully created an Orc FlatBuffer, the monster data can
+Now that we have successfully created an `Orc` FlatBuffer, the monster data can
 be saved, sent over a network, etc. Let's now adventure into the inverse, and
 access a FlatBuffer.
 
@@ -2472,8 +2531,8 @@ let monster = Monster.getRootAsMonster(bb: ByteBuffer(bytes: buf))
 ```
 {{</ tutorial-lang-observer>}}
 
-If you look in the generated files from the schema compiler, you will see it
-generated accessors for all non-deprecated fields. For example:
+If you look in the generated files from the schema compiler, you will see it generated
+accessors for all non-`deprecated` fields. For example:
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -2600,12 +2659,12 @@ let name = monster.name // returns an optional string
 ```
 {{</ tutorial-lang-observer>}}
 
-These should hold 300, 150, and "Orc" respectively.
+These should hold `300`, `150`, and `"Orc"` respectively.
 
-Note: The default value 150 wasn't stored in mana, but we are still able to
-retrieve it.
+*Note: The default value `150` wasn't stored in `mana`, but we are
+still able to retrieve it.*
 
-To access sub-objects, in the case of our pos, which is a Vec3:
+To access sub-objects, in the case of our `pos`, which is a `Vec3`:
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -2749,13 +2808,13 @@ let z = pos.z
 ```
 {{</ tutorial-lang-observer>}}
 
-x, y, and z will contain 1.0, 2.0, and 3.0, respectively.
+`x`, `y`, and `z` will contain `1.0`, `2.0`, and `3.0`, respectively.
 
-Note: Had we not set pos during serialization, it would be a null-value.
+*Note: Had we not set `pos` during serialization, it would be a `null`-value.*
 
-Similarly, we can access elements of the inventory vector by indexing it.
-You can also iterate over the length of the array/vector representing the
-FlatBuffers vector.
+Similarly, we can access elements of the inventory `vector` by indexing it. You
+can also iterate over the length of the array/vector representing the
+FlatBuffers `vector`.
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -2876,8 +2935,8 @@ let inv = monster.inventory
 ```
 {{</ tutorial-lang-observer>}}
 
-For vectors of tables, you can access the elements like any other vector,
-except you need to handle the result as a FlatBuffer table:
+For `vector`s of `table`s, you can access the elements like any other vector,
+except you need to handle the result as a FlatBuffer `table`:
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -3014,11 +3073,11 @@ let weaponDmg = weapon2.damage
 ```
 {{</ tutorial-lang-observer>}}
 
-Last, we can access our Equipped FlatBuffer union. Just like when we created
-the union, we need to get both parts of the union: the type and the data.
+Last, we can access our `Equipped` FlatBuffer `union`. Just like when we created
+the `union`, we need to get both parts of the `union`: the type and the data.
 
-We can access the type to dynamically cast the data as needed (since the union
-only stores a FlatBuffer table).
+We can access the type to dynamically cast the data as needed (since the
+`union` only stores a FlatBuffer `table`).
 
 {{< tutorial-lang-observer lang="C++">}}
 ```cpp
@@ -3236,10 +3295,10 @@ structures. This is inconvenient.
 
 For this reason FlatBuffers can also be mutated in-place. While this is great
 for making small fixes to an existing buffer, you generally want to create
-buffers from scratch whenever possible, since it is much more efficient and
-the API is much more general purpose.
+buffers from scratch whenever possible, since it is much more efficient and the
+API is much more general purpose.
 
-To get non-const accessors, invoke flatc with --gen-mutable.
+To get non-const accessors, invoke `flatc` with `--gen-mutable`.
 
 Similar to how we read fields using the accessors above, we can now use the
 mutators like so:
@@ -3352,25 +3411,25 @@ monster.mutate(inventory: 6, at index: 0) // mutates a value in an Scalar array
 ```
 {{</ tutorial-lang-observer>}}
 
-We use the somewhat verbose term mutate instead of set to indicate that this is
-a special use case, not to be confused with the default way of constructing
+We use the somewhat verbose term `mutate` instead of `set` to indicate that this
+is a special use case, not to be confused with the default way of constructing
 FlatBuffer data.
 
 After the above mutations, you can send on the FlatBuffer to a new recipient
 without any further work!
 
-Note that any mutate functions on a table will return a boolean, which is false
-if the field we're trying to set is not present in the buffer. Fields are not
-present if they weren't set, or even if they happen to be equal to the default
-value. For example, in the creation code above, the mana field is equal to 150,
-which is the default value, so it was never stored in the buffer. Trying to
-call the corresponding mutate method for mana on such data will return false,
-and the value won't actually be modified!
+Note that any `mutate` functions on a table will return a boolean, which is
+`false` if the field we're trying to set is not present in the buffer. Fields
+are not present if they weren't set, or even if they happen to be equal to
+the default value. For example, in the creation code above, the `mana`
+field is equal to `150`, which is the default value, so it was never stored in
+the buffer. Trying to call the corresponding `mutate` method for `mana` on such
+data will return `false`, and the value won't actually be modified!
 
-One way to solve this is to call ForceDefaults on a FlatBufferBuilder to force
-all fields you set to actually be written. This, of course, increases the size
-of the buffer somewhat, but this may be acceptable for a mutable buffer.
+One way to solve this is to call `ForceDefaults` on a FlatBufferBuilder to
+force all fields you set to actually be written. This, of course, increases the
+size of the buffer somewhat, but this may be acceptable for a mutable buffer.
 
 If this is not sufficient, other ways of mutating FlatBuffers may be supported
-in your language through an object based API (--gen-object-api) or reflection.
+in your language through an object based API (`--gen-object-api`) or reflection.
 See the individual language documents for support.
