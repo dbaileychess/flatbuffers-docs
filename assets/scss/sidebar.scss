@@ -26,11 +26,13 @@ aside {
 .sidebar-content .nav-link:hover {
   color: $primaryColor;
   border-left: 3px solid $primaryColor;
+  background-color: rgba($color: $primaryColor, $alpha: 0.05);
 }
 
 .sidebar-content .nav-link.active {
   color: $primaryColor;
   border-left: 3px solid $primaryColor;
+  background-color: rgba($color: $primaryColor, $alpha: 0.05);
 }
 
 @media (min-width: $mediaMd) {
