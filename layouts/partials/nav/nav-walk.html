@@ -3,7 +3,7 @@
   {{ if .Content }}
     <a
       class="nav-link {{ if eq $rootPage . }} active {{ end }}"
-      href="{{ .RelPermalink }}"
+      href="{{ .Permalink }}"
     >
       <div>
         {{ .Title }}

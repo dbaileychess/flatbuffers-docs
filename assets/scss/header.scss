@@ -50,6 +50,9 @@ header {
 
 .social-icon {
   color: inherit;
+  width: 28px;
+  height: 28px;
+  aspect-ratio: 1/1;
 }
 
 .menu-button {
@@ -66,7 +69,7 @@ header {
   }
 }
 
-@media (min-width: $mediaLg) {
+@media (min-width: $mediaMd) {
   .header-content {
     margin: auto;
   }

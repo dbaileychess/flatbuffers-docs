@@ -2,8 +2,9 @@
   <div class="header-content">
     <a class="header-home-link" href="{{ .Site.Home.RelPermalink }}">
       <div class="header-logo-title">
+        {{ $logo := resources.Get "images/flatbuffers_logo.svg" }}
         <img
-          src="{{ printf "%s%s" .Site.Home.RelPermalink "assets/flatbuffer_logo.svg" }}"
+          src="{{ $logo.Permalink }}"
           class="header-logo"
           alt="FlatBuffers logo"
         />

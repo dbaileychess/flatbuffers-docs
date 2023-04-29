@@ -5,35 +5,25 @@
     <meta name="description" content="FlatBuffers Documentation" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{ $logo := resources.Get "images/flatbuffers_logo.svg" }}
     <link
       rel="icon"
-      href="{{ printf "%s%s" .Site.Home.RelPermalink "assets/flatbuffer_logo.svg" }}"
+      href="{{ $logo.Permalink }}"
       sizes="any"
       type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script
-      defer
-      src="{{ printf "%s%s" .Site.Home.RelPermalink "js/menu.js" }}"
-    ></script>
-    <script
-      defer
-      type="module"
-      src="{{ printf "%s%s" .Site.Home.RelPermalink "js/app.js" }}"
-    ></script>
+    {{ $menuScript := resources.Get "js/menu.js" }}
+    <script defer src=" {{ $menuScript.Permalink }}"></script>
+    {{ $appScript := resources.Get "js/app.js" }}
+    <script defer type="module" src="{{ $appScript.Permalink }}"></script>
     {{ $sass := resources.Get "scss/root.scss" }}
     {{ $style := $sass | resources.ToCSS }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
-
-    <link
-      rel="stylesheet"
-      href="{{ printf "%s%s" .Site.Home.RelPermalink "css/root.css" }}"
-    />
   </head>
   <body>
     <div id="app">
