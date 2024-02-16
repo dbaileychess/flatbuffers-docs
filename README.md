@@ -4,5 +4,5 @@
 ## Start a dev server
 
 ```
-hugo server -w -D --bind=0.0.0.0 --baseURL=http://0.0.0.0:1313
+hugo server -w -D --bind=0.0.0.0 --baseURL=http://localhost:1313
 ```

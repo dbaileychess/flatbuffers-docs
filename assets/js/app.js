@@ -25,5 +25,4 @@ createApp({
     setLanguage: setLanguage,
   },
   created: created,
-  delimiters: ["${", "}$"],
 }).mount("#app");
